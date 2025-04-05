@@ -1,0 +1,10 @@
+# This is a template yaml for the processor
+health_check_port: 8085
+server_config:
+  transaction_stream_config:
+    indexer_grpc_data_service_address: "https://grpc.testnet.aptoslabs.com:443"
+    auth_token: "aptoslabs_3aWf6k538FU_3E9MkWvsqug84aWi28Dc4tYuhDh4a9eAW"
+    request_name_header: "events-processor"
+    starting_version: 6673103016
+  postgres_config:
+    connection_string: postgresql://postgres:postgres@localhost:5433/sudo_indexer
