@@ -36,7 +36,10 @@ pub struct Event {
     pub transaction_version: i64,
     pub transaction_block_height: i64,
     pub type_: String,
-    pub data: serde_json::Value,
+    // pub data: serde_json::Value,
+    pub winner: String,
+    pub coin_type: String,
+    pub timestamp_: String,
     pub event_index: i64,
     pub indexed_type: String,
 }
@@ -52,9 +55,11 @@ impl Event {
 
         if t.starts_with("0x48db28693cf47be4fb9a37c51d1e6cb10c1301b72955c71d31675e3daa549da9::meme::RaffleEvent") {
             let data: RaffleEventOnChain = serde_json::from_str(event.data.as_str()).unwrap();
-            info(!"");
-            info!("data: {:?}", data);
-            info(!"");
+            info!("");
+            info!("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+            info!("raffle_event: {:?}", data);
+            info!(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            info!("");
 
             Some(Event {
                 account_address: standardize_address(
@@ -65,7 +70,10 @@ impl Event {
                 transaction_version,
                 transaction_block_height,
                 type_: t.to_string(),
-                data: serde_json::from_str(event.data.as_str()).unwrap(),
+                // data: serde_json::from_str(event.data.as_str()).unwrap(),
+                winner: data.winner,
+                coin_type: data.coin_type,
+                timestamp_: data.timestamp,
                 event_index,
                 indexed_type: truncate_str(t, EVENT_TYPE_MAX_LENGTH),
             })

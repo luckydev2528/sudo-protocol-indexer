@@ -10,7 +10,11 @@ diesel::table! {
         transaction_block_height -> Int8,
         #[sql_name = "type"]
         type_ -> Text,
-        data -> Jsonb,
+        // data -> Jsonb,
+        winner -> Text,
+        coin_type -> Text,
+        #[sql_name = "timestamp"]
+        timestamp_ -> Text,
         inserted_at -> Timestamp,
         event_index -> Int8,
         #[max_length = 300]
