@@ -1,5 +1,5 @@
 -- Your SQL goes here
-CREATE TABLE events (
+CREATE TABLE raffle_events (
     sequence_number BIGINT NOT NULL,
     creation_number BIGINT NOT NULL,
     account_address VARCHAR(66) NOT NULL,

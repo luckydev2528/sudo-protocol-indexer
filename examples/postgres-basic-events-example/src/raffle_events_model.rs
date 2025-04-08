@@ -3,7 +3,7 @@
 
 #![allow(clippy::extra_unused_lifetimes)]
 
-use crate::schema::events;
+use crate::schema::raffle_events;
 use aptos_indexer_processor_sdk::{
     aptos_protos::transaction::v1::Event as EventPB,
     utils::convert::{standardize_address, truncate_str},
@@ -28,8 +28,8 @@ const EVENT_TYPE_MAX_LENGTH: usize = 300;
 
 #[derive(Clone, Debug, Deserialize, FieldCount, Identifiable, Insertable, Serialize)]
 #[diesel(primary_key(transaction_version, event_index))]
-#[diesel(table_name = events)]
-pub struct Event {
+#[diesel(table_name = raffle_events)]
+pub struct RaffleEvent {
     pub sequence_number: i64,
     pub creation_number: i64,
     pub account_address: String,
@@ -44,7 +44,7 @@ pub struct Event {
     pub indexed_type: String,
 }
 
-impl Event {
+impl RaffleEvent {
     pub fn from_event(
         event: &EventPB,
         transaction_version: i64,
@@ -61,7 +61,7 @@ impl Event {
             info!(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
             info!("");
 
-            Some(Event {
+            Some(RaffleEvent {
                 account_address: standardize_address(
                     event.key.as_ref().unwrap().account_address.as_str(),
                 ),
@@ -98,9 +98,9 @@ impl Event {
                     index as i64,
                 )
             })
-            .collect::<Vec<EventModel>>()
+            .collect::<Vec<RaffleEventModel>>()
     }
 }
 
 // Prevent conflicts with other things named `Event`
-pub type EventModel = Event;
+pub type RaffleEventModel = RaffleEvent;

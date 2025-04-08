@@ -1,4 +1,4 @@
-use crate::events_model::EventModel;
+use crate::raffle_events_model::RaffleEventModel;
 use anyhow::Result;
 use aptos_indexer_processor_sdk::{
     aptos_protos::transaction::v1::transaction::TxnData,
@@ -13,17 +13,17 @@ use field_count::FieldCount;
 use rayon::prelude::*;
 use tracing::{error, info, warn};
 
-pub mod events_model;
+pub mod raffle_events_model;
 #[path = "db/schema.rs"]
 pub mod schema;
 
 const MIGRATIONS: EmbeddedMigrations = embed_migrations!("src/db/migrations");
 
 fn insert_events_query(
-    items_to_insert: Vec<EventModel>,
+    items_to_insert: Vec<RaffleEventModel>,
 ) -> impl QueryFragment<Pg> + diesel::query_builder::QueryId + Send {
-    use crate::schema::events::dsl::*;
-    diesel::insert_into(crate::schema::events::table)
+    use crate::schema::raffle_events::dsl::*;
+    diesel::insert_into(crate::schema::raffle_events::table)
         .values(items_to_insert)
         .on_conflict((transaction_version, event_index))
         .do_nothing()
@@ -58,17 +58,17 @@ async fn main() -> Result<()> {
                         _ => &default,
                     };
 
-                    EventModel::from_events(raw_events, txn_version, block_height)
+                    RaffleEventModel::from_events(raw_events, txn_version, block_height)
                 })
                 .flatten()
-                .collect::<Vec<EventModel>>();
+                .collect::<Vec<RaffleEventModel>>();
 
             // Store events in the database
             let execute_res = execute_in_chunks(
                 conn_pool.clone(),
                 insert_events_query,
                 &events,
-                MAX_DIESEL_PARAM_SIZE / EventModel::field_count(),
+                MAX_DIESEL_PARAM_SIZE / RaffleEventModel::field_count(),
             )
             .await;
             match execute_res {
