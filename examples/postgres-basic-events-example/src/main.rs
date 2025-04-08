@@ -1,4 +1,4 @@
-use crate::raffle_events_model::RaffleEventModel;
+use crate::events_model::EventModel;
 use anyhow::Result;
 use aptos_indexer_processor_sdk::{
     aptos_protos::transaction::v1::transaction::TxnData,
@@ -13,17 +13,17 @@ use field_count::FieldCount;
 use rayon::prelude::*;
 use tracing::{error, info, warn};
 
-pub mod raffle_events_model;
+pub mod events_model;
 #[path = "db/schema.rs"]
 pub mod schema;
 
 const MIGRATIONS: EmbeddedMigrations = embed_migrations!("src/db/migrations");
 
 fn insert_events_query(
-    items_to_insert: Vec<RaffleEventModel>,
+    items_to_insert: Vec<EventModel>,
 ) -> impl QueryFragment<Pg> + diesel::query_builder::QueryId + Send {
-    use crate::schema::raffle_events::dsl::*;
-    diesel::insert_into(crate::schema::raffle_events::table)
+    use crate::schema::events::dsl::*;
+    diesel::insert_into(crate::schema::events::table)
         .values(items_to_insert)
         .on_conflict((transaction_version, event_index))
         .do_nothing()
@@ -35,7 +35,7 @@ async fn main() -> Result<()> {
         "events_processor".to_string(),
         MIGRATIONS,
         async |transactions, conn_pool| {
-            let raffle_events = transactions
+            let events = transactions
                 .par_iter()
                 .map(|txn| {
                     let txn_version = txn.version as i64;
@@ -58,26 +58,26 @@ async fn main() -> Result<()> {
                         _ => &default,
                     };
 
-                    RaffleEventModel::from_events(raw_events, txn_version, block_height)
+                    EventModel::from_events(raw_events, txn_version, block_height)
                 })
                 .flatten()
-                .collect::<Vec<RaffleEventModel>>();
+                .collect::<Vec<EventModel>>();
 
             // Store events in the database
             let execute_res = execute_in_chunks(
                 conn_pool.clone(),
                 insert_events_query,
-                &raffle_events,
-                MAX_DIESEL_PARAM_SIZE / RaffleEventModel::field_count(),
+                &events,
+                MAX_DIESEL_PARAM_SIZE / EventModel::field_count(),
             )
             .await;
             match execute_res {
                 Ok(_) => {
-                    info!(
-                        "Events version [{}, {}] stored successfully",
-                        transactions.first().unwrap().version,
-                        transactions.last().unwrap().version
-                    );
+                    // info!(
+                    //     "Events version [{}, {}] stored successfully",
+                    //     transactions.first().unwrap().version,
+                    //     transactions.last().unwrap().version
+                    // );
                     Ok(())
                 },
                 Err(e) => {

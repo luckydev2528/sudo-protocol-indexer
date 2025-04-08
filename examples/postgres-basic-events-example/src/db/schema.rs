@@ -1,7 +1,7 @@
 // @generated automatically by Diesel CLI.
 
 diesel::table! {
-    raffle_events (transaction_version, event_index) {
+    events (transaction_version, event_index) {
         sequence_number -> Int8,
         creation_number -> Int8,
         #[max_length = 66]
@@ -10,12 +10,7 @@ diesel::table! {
         transaction_block_height -> Int8,
         #[sql_name = "type"]
         type_ -> Text,
-        #[max_length = 66]
-        winner -> Varchar,
-        #[max_length = 66]
-        coin_type -> Varchar,
-        #[sql_name = "timestamp"]
-        timestamp_ -> Timestamp,
+        data -> Jsonb,
         inserted_at -> Timestamp,
         event_index -> Int8,
         #[max_length = 300]
@@ -23,6 +18,4 @@ diesel::table! {
     }
 }
 
-diesel::allow_tables_to_appear_in_same_query!(
-    raffle_events,
-);
+diesel::allow_tables_to_appear_in_same_query!(events,);

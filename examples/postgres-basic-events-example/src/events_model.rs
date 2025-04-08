@@ -11,6 +11,17 @@ use aptos_indexer_processor_sdk::{
 use diesel::{Identifiable, Insertable};
 use field_count::FieldCount;
 use serde::{Deserialize, Serialize};
+use tracing::{info};
+
+
+#[derive(Clone, Debug, Deserialize, Serialize)]
+/// On-chain representation of a message creation event
+pub struct RaffleEventOnChain {
+    pub winner: String,
+    pub coin_type: String,
+    pub timestamp: String
+}
+
 
 // p99 currently is 303 so using 300 as a safe max length
 const EVENT_TYPE_MAX_LENGTH: usize = 300;
@@ -36,20 +47,30 @@ impl Event {
         transaction_version: i64,
         transaction_block_height: i64,
         event_index: i64,
-    ) -> Self {
+    ) -> Option<Self> {
         let t: &str = event.type_str.as_ref();
-        Event {
-            account_address: standardize_address(
-                event.key.as_ref().unwrap().account_address.as_str(),
-            ),
-            creation_number: event.key.as_ref().unwrap().creation_number as i64,
-            sequence_number: event.sequence_number as i64,
-            transaction_version,
-            transaction_block_height,
-            type_: t.to_string(),
-            data: serde_json::from_str(event.data.as_str()).unwrap(),
-            event_index,
-            indexed_type: truncate_str(t, EVENT_TYPE_MAX_LENGTH),
+
+        if t.starts_with("0x48db28693cf47be4fb9a37c51d1e6cb10c1301b72955c71d31675e3daa549da9::meme::RaffleEvent") {
+            let data: RaffleEventOnChain = serde_json::from_str(event.data.as_str()).unwrap();
+            info(!"");
+            info!("data: {:?}", data);
+            info(!"");
+
+            Some(Event {
+                account_address: standardize_address(
+                    event.key.as_ref().unwrap().account_address.as_str(),
+                ),
+                creation_number: event.key.as_ref().unwrap().creation_number as i64,
+                sequence_number: event.sequence_number as i64,
+                transaction_version,
+                transaction_block_height,
+                type_: t.to_string(),
+                data: serde_json::from_str(event.data.as_str()).unwrap(),
+                event_index,
+                indexed_type: truncate_str(t, EVENT_TYPE_MAX_LENGTH),
+            })
+        } else {
+            None
         }
     }
 
@@ -61,7 +82,7 @@ impl Event {
         events
             .iter()
             .enumerate()
-            .map(|(index, event)| {
+            .filter_map(|(index, event)| {
                 Self::from_event(
                     event,
                     transaction_version,
