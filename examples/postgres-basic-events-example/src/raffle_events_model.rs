@@ -11,9 +11,20 @@ use aptos_indexer_processor_sdk::{
 use diesel::{Identifiable, Insertable};
 use field_count::FieldCount;
 use serde::{Deserialize, Serialize};
+use tracing::{error, info, warn};
 
 // p99 currently is 303 so using 300 as a safe max length
 const EVENT_TYPE_MAX_LENGTH: usize = 300;
+
+
+#[derive(Clone, Debug, Deserialize, Serialize)]
+/// On-chain representation of a raffle event
+pub struct RaffleEventOnChain {
+    pub winner: String,
+    pub coin_type: String,
+    pub timestamp: i64,
+}
+
 
 #[derive(Clone, Debug, Deserialize, FieldCount, Identifiable, Insertable, Serialize)]
 #[diesel(primary_key(transaction_version, event_index))]
@@ -26,9 +37,9 @@ pub struct RaffleEvent {
     pub transaction_block_height: i64,
     pub type_: String,
     // pub data: serde_json::Value,
-    pub winner: String;
-    pub coin_type: String;
-    pub timestamp: i64;
+    pub winner: String,
+    pub coin_type: String,
+    pub timestamp_: i64,
     pub event_index: i64,
     pub indexed_type: String,
 }
@@ -43,7 +54,7 @@ impl RaffleEvent {
         let t: &str = event.type_str.as_ref();
 
         if t.starts_with("0x48db28693cf47be4fb9a37c51d1e6cb10c1301b72955c71d31675e3daa549da9") {
-            let data = serde_json::from_str(event.data.as_str()).unwrap();
+            let data: RaffleEventOnChain = serde_json::from_str(event.data.as_str()).unwrap();
             info!("data:{:?}", data);
             
             Some(RaffleEvent {
@@ -58,7 +69,7 @@ impl RaffleEvent {
                 // data: serde_json::from_str(event.data.as_str()).unwrap(),
                 winner: data.winner,
                 coin_type: data.coin_type,
-                timestamp: data.timestamp,
+                timestamp_: data.timestamp as i64,
                 event_index,
                 indexed_type: truncate_str(t, EVENT_TYPE_MAX_LENGTH),
             })

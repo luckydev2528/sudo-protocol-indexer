@@ -9,7 +9,7 @@ CREATE TABLE raffle_events (
     -- data JSONB NOT NULL,
     winner VARCHAR(66) NOT NULL,
     coin_type VARCHAR(66) NOT NULL,
-    raffle_timestamp TIMESTAMP NOT NULl DEFAULT NOW(),
+    timestamp TIMESTAMP NOT NULL DEFAULT NOW(),
     inserted_at TIMESTAMP NOT NULL DEFAULT NOW(),
     event_index BIGINT NOT NULL,
     indexed_type VARCHAR(300) NOT NULL,
