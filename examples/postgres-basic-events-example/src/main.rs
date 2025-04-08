@@ -76,7 +76,7 @@ async fn main() -> Result<()> {
                 .flatten()
                 .collect::<Vec<RaffleEventModel>>();
 
-            // Store events in the database
+            // Store raffle events in the database
             let mut execute_res = execute_in_chunks(
                 conn_pool.clone(),
                 insert_raffle_events_query,
@@ -129,7 +129,7 @@ async fn main() -> Result<()> {
                 .flatten()
                 .collect::<Vec<BuyEventModel>>();
 
-            // Store events in the database
+            // Store buy events in the database
             execute_res = execute_in_chunks(
                 conn_pool.clone(),
                 insert_buy_events_query,
