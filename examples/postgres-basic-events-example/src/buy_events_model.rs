@@ -22,6 +22,7 @@ const EVENT_TYPE_MAX_LENGTH: usize = 300;
 /// On-chain representation of a message creation event
 pub struct BuyEventOnChain {
     pub coin_type: String,
+    pub sequence: String,
     pub buyer: String,
     pub num_tickets: String,
     pub timestamp: String
@@ -40,6 +41,7 @@ pub struct BuyEvent {
     pub type_: String,
     pub coin_type: String,
     pub buyer: String,
+    pub sequence: String,
     pub num_tickets: String,
     pub timestamp_: String,
     pub event_index: i64,
@@ -55,7 +57,7 @@ impl BuyEvent {
     ) -> Option<Self> {
         let t: &str = event.type_str.as_ref();
 
-        if t.starts_with("0x48db28693cf47be4fb9a37c51d1e6cb10c1301b72955c71d31675e3daa549da9::meme::BuyEvent") {
+        if t.starts_with("0x1f9fce92ec5b8ef68d4f1925269cec38dda5a7855a80d056e0d39ca3f3682f18::meme::BuyEvent") {
             let data: BuyEventOnChain = serde_json::from_str(event.data.as_str()).unwrap();
             info!("");
             info!("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
@@ -73,6 +75,7 @@ impl BuyEvent {
                 transaction_block_height,
                 type_: t.to_string(),
                 coin_type: data.coin_type,
+                sequence: data.sequence,
                 buyer: data.buyer,
                 num_tickets: data.num_tickets,
                 timestamp_: data.timestamp,

@@ -7,6 +7,7 @@ CREATE TABLE buy_events (
     transaction_block_height BIGINT NOT NULL,
     type TEXT NOT NULL,
     coin_type TEXT NOT NULL,
+    sequence TEXT NOT NULL,
     buyer TEXT NOT NULL,
     num_tickets TEXT NOT NULL,
     timestamp TEXT NOT NULL,

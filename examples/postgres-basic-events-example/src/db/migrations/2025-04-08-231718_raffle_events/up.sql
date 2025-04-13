@@ -7,6 +7,7 @@ CREATE TABLE raffle_events (
     transaction_block_height BIGINT NOT NULL,
     type TEXT NOT NULL,
     coin_type TEXT NOT NULL,
+    sequence TEXT NOT NULL,
     winner TEXT NOT NULL,
     timestamp TEXT NOT NULL,
     inserted_at TIMESTAMP NOT NULL DEFAULT NOW(),

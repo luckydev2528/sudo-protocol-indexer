@@ -11,6 +11,7 @@ diesel::table! {
         #[sql_name = "type"]
         type_ -> Text,
         coin_type -> Text,
+        sequence -> Text,
         buyer -> Text,
         num_tickets -> Text,
         #[sql_name = "timestamp"]
@@ -33,6 +34,7 @@ diesel::table! {
         #[sql_name = "type"]
         type_ -> Text,
         coin_type -> Text,
+        sequence -> Text,
         winner -> Text,
         #[sql_name = "timestamp"]
         timestamp_ -> Text,
