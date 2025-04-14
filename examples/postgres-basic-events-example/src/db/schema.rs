@@ -11,12 +11,12 @@ diesel::table! {
         #[sql_name = "type"]
         type_ -> Text,
         coin_type -> Text,
-        sequence -> Text,
+        sequence -> Int8,
         buyer -> Text,
-        // num_tickets -> Text,
-        amount_apt -> Text,
+        // num_tickets -> Int8,
+        amount_apt -> Int8,
         #[sql_name = "timestamp"]
-        timestamp_ -> Text,
+        timestamp_ -> Int8,
         inserted_at -> Timestamp,
         event_index -> Int8,
         #[max_length = 300]
@@ -35,12 +35,12 @@ diesel::table! {
         #[sql_name = "type"]
         type_ -> Text,
         coin_type -> Text,
-        sequence -> Text,
+        sequence -> Int8,
         winner -> Text,
-        total_tickets -> Text,
-        amount_apt -> Text,
+        total_tickets -> Int8,
+        amount_apt -> Int8,
         #[sql_name = "timestamp"]
-        timestamp_ -> Text,
+        timestamp_ -> Int8,
         inserted_at -> Timestamp,
         event_index -> Int8,
         #[max_length = 300]
