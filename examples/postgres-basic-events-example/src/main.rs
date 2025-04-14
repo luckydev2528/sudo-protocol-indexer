@@ -139,11 +139,11 @@ async fn main() -> Result<()> {
             .await;
             match execute_res {
                 Ok(_) => {
-                    info!(
-                        "Events version [{}, {}] stored successfully",
-                        transactions.first().unwrap().version,
-                        transactions.last().unwrap().version
-                    );
+                    // info!(
+                    //     "Events version [{}, {}] stored successfully",
+                    //     transactions.first().unwrap().version,
+                    //     transactions.last().unwrap().version
+                    // );
                     Ok(())
                 },
                 Err(e) => {
