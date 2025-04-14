@@ -24,6 +24,8 @@ pub struct RaffleEventOnChain {
     pub coin_type: String,
     pub sequence: String,
     pub winner: String,
+    pub total_tickets: String,
+    pub amount_apt: String,
     pub timestamp: String
 }
 
@@ -41,6 +43,8 @@ pub struct RaffleEvent {
     pub coin_type: String,
     pub sequence: String,
     pub winner: String,
+    pub total_tickets: String,
+    pub amount_apt: String,
     pub timestamp_: String,
     pub event_index: i64,
     pub indexed_type: String,
@@ -55,7 +59,7 @@ impl RaffleEvent {
     ) -> Option<Self> {
         let t: &str = event.type_str.as_ref();
 
-        if t.starts_with("0x1f9fce92ec5b8ef68d4f1925269cec38dda5a7855a80d056e0d39ca3f3682f18::meme::RaffleEvent") {
+        if t.starts_with("0x954fc026157dfaf5bd861df7df1d7922cf3cdd0539e8935d463eb47d24a95a23::meme::RaffleEvent") {
             let data: RaffleEventOnChain = serde_json::from_str(event.data.as_str()).unwrap();
             info!("");
             info!("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
@@ -75,6 +79,8 @@ impl RaffleEvent {
                 coin_type: data.coin_type,
                 sequence: data.sequence,
                 winner: data.winner,
+                total_tickets: data.total_tickets,
+                amount_apt: data.amount_apt,
                 timestamp_: data.timestamp,
                 event_index,
                 indexed_type: truncate_str(t, EVENT_TYPE_MAX_LENGTH),

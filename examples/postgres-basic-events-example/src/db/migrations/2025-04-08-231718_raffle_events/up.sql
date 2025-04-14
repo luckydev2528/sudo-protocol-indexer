@@ -9,6 +9,8 @@ CREATE TABLE raffle_events (
     coin_type TEXT NOT NULL,
     sequence TEXT NOT NULL,
     winner TEXT NOT NULL,
+    total_tickets TEXT NOT NULL,
+    amount_apt TEXT NOT NULL,
     timestamp TEXT NOT NULL,
     inserted_at TIMESTAMP NOT NULL DEFAULT NOW(),
     event_index BIGINT NOT NULL,
