@@ -17,6 +17,7 @@ diesel::table! {
         amount_apt -> Int8,
         #[sql_name = "timestamp"]
         timestamp_ -> Int8,
+        // status -> Bool,
         inserted_at -> Timestamp,
         event_index -> Int8,
         #[max_length = 300]

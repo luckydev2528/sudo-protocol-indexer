@@ -46,6 +46,7 @@ pub struct BuyEvent {
     // pub num_tickets: i64,
     pub amount_apt: i64,
     pub timestamp_: i64,
+    // pub status: bool,
     pub event_index: i64,
     pub indexed_type: String,
 }
@@ -82,6 +83,7 @@ impl BuyEvent {
                 // num_tickets: data.num_tickets.parse().unwrap(),
                 amount_apt: data.amount_apt.parse().unwrap(),
                 timestamp_: data.timestamp.parse().unwrap(),
+                // status: false,
                 event_index,
                 indexed_type: truncate_str(t, EVENT_TYPE_MAX_LENGTH),
             })

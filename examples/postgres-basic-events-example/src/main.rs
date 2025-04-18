@@ -31,6 +31,22 @@ fn insert_raffle_events_query(
         .do_nothing()
 }
 
+// fn update_buy_events_query(
+//     items_to_update: Vec<RaffleEventModel>
+// ) {
+//     use crate::schema::buy_events::dsl::*;
+
+//     for item in items_to_update {
+//         diesel::update(
+//             buy_events
+//                 .filter(buy_events::transaction_version.eq(item.transaction_version))
+//                 .filter(buy_events::sequence.eq(item.sequence))
+//         )
+//         .set(buy_events::status.eq(true))
+//         .get_result();
+//     }
+// }
+
 fn insert_buy_events_query(
     items_to_insert: Vec<BuyEventModel>,
 ) -> impl QueryFragment<Pg> + diesel::query_builder::QueryId + Send {

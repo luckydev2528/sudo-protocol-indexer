@@ -12,6 +12,7 @@ CREATE TABLE buy_events (
     -- num_tickets TEXT NOT NULL,
     amount_apt BIGINT NOT NULL,
     timestamp BIGINT NOT NULL,
+    -- status BOOLEAN NOT NULL,
     inserted_at TIMESTAMP NOT NULL DEFAULT NOW(),
     event_index BIGINT NOT NULL,
     indexed_type VARCHAR(300) NOT NULL,
