@@ -26,6 +26,7 @@ pub struct RaffleEventOnChain {
     pub winner: String,
     pub total_tickets: String,
     pub amount_apt: String,
+    pub amount_token: String,
     pub timestamp: String
 }
 
@@ -45,6 +46,7 @@ pub struct RaffleEvent {
     pub winner: String,
     pub total_tickets: i64,
     pub amount_apt: i64,
+    pub amount_token: i64,
     pub timestamp_: i64,
     pub event_index: i64,
     pub indexed_type: String,
@@ -59,7 +61,8 @@ impl RaffleEvent {
     ) -> Option<Self> {
         let t: &str = event.type_str.as_ref();
 
-        if t.starts_with("0x954fc026157dfaf5bd861df7df1d7922cf3cdd0539e8935d463eb47d24a95a23::meme::RaffleEvent") {
+        // if t.starts_with("0x954fc026157dfaf5bd861df7df1d7922cf3cdd0539e8935d463eb47d24a95a23::meme::RaffleEvent") {
+        if t.starts_with("0xc58654a8eaa2818496ab82ae67dbae67963cd429267da4db1039de0bb712ef07::meme::RaffleEvent") {
             let data: RaffleEventOnChain = serde_json::from_str(event.data.as_str()).unwrap();
             info!("");
             info!("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
@@ -81,6 +84,7 @@ impl RaffleEvent {
                 winner: data.winner,
                 total_tickets: data.total_tickets.parse().unwrap(),
                 amount_apt: data.amount_apt.parse().unwrap(),
+                amount_token: data.amount_token.parse().unwrap(),
                 timestamp_: data.timestamp.parse().unwrap(),
                 event_index,
                 indexed_type: truncate_str(t, EVENT_TYPE_MAX_LENGTH),

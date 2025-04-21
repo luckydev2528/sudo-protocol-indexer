@@ -11,6 +11,7 @@ CREATE TABLE raffle_events (
     winner TEXT NOT NULL,
     total_tickets BIGINT NOT NULL,
     amount_apt BIGINT NOT NULL,
+    amount_token BIGINT NOT NULL,
     timestamp BIGINT NOT NULL,
     inserted_at TIMESTAMP NOT NULL DEFAULT NOW(),
     event_index BIGINT NOT NULL,

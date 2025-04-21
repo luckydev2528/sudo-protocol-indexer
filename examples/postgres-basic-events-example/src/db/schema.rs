@@ -13,7 +13,6 @@ diesel::table! {
         coin_type -> Text,
         sequence -> Int8,
         buyer -> Text,
-        // num_tickets -> Int8,
         amount_apt -> Int8,
         #[sql_name = "timestamp"]
         timestamp_ -> Int8,
@@ -40,6 +39,7 @@ diesel::table! {
         winner -> Text,
         total_tickets -> Int8,
         amount_apt -> Int8,
+        amount_token -> Int8,
         #[sql_name = "timestamp"]
         timestamp_ -> Int8,
         inserted_at -> Timestamp,
