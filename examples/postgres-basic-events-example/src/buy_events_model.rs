@@ -24,7 +24,6 @@ pub struct BuyEventOnChain {
     pub coin_type: String,
     pub sequence: String,
     pub buyer: String,
-    // pub num_tickets: String,
     pub amount_apt: String,
     pub timestamp: String
 }
@@ -43,7 +42,6 @@ pub struct BuyEvent {
     pub coin_type: String,
     pub buyer: String,
     pub sequence: i64,
-    // pub num_tickets: i64,
     pub amount_apt: i64,
     pub timestamp_: i64,
     // pub status: bool,
@@ -81,7 +79,6 @@ impl BuyEvent {
                 coin_type: data.coin_type,
                 sequence: data.sequence.parse().unwrap(),
                 buyer: data.buyer,
-                // num_tickets: data.num_tickets.parse().unwrap(),
                 amount_apt: data.amount_apt.parse().unwrap(),
                 timestamp_: data.timestamp.parse().unwrap(),
                 // status: false,

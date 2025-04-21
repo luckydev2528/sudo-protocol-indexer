@@ -9,7 +9,6 @@ CREATE TABLE buy_events (
     coin_type TEXT NOT NULL,
     sequence BIGINT NOT NULL,
     buyer TEXT NOT NULL,
-    -- num_tickets TEXT NOT NULL,
     amount_apt BIGINT NOT NULL,
     timestamp BIGINT NOT NULL,
     -- status BOOLEAN NOT NULL,
