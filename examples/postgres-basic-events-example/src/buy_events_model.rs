@@ -62,11 +62,11 @@ impl BuyEvent {
         if t.starts_with("0xc58654a8eaa2818496ab82ae67dbae67963cd429267da4db1039de0bb712ef07::meme::BuyEvent") || 
            t.starts_with("0xd7726cb41ba5b84c22af0038066baab6cf892ef9191cce0a6137f4642d57be5e::meme::BuyEvent") {
             let data: BuyEventOnChain = serde_json::from_str(event.data.as_str()).unwrap();
-            info!("");
-            info!("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
-            info!("buy_event: {:?}", data);
-            info!(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-            info!("");
+            // info!("");
+            // info!("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+            // info!("buy_event: {:?}", data);
+            // info!(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            // info!("");
 
             Some(BuyEvent {
                 account_address: standardize_address(
