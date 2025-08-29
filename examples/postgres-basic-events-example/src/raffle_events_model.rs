@@ -61,8 +61,9 @@ impl RaffleEvent {
     ) -> Option<Self> {
         let t: &str = event.type_str.as_ref();
 
-        // if t.starts_with("0x954fc026157dfaf5bd861df7df1d7922cf3cdd0539e8935d463eb47d24a95a23::meme::RaffleEvent") {
-        if t.starts_with("0xc58654a8eaa2818496ab82ae67dbae67963cd429267da4db1039de0bb712ef07::meme::RaffleEvent") || 
+        // Monitor events from the new deployed module
+        if t.starts_with("0xb359560fc77127a3d1ccdad4bd7f8423997a16a3572dcea4e4dd747fd3ecd08b::meme::RaffleEvent") ||
+           t.starts_with("0xc58654a8eaa2818496ab82ae67dbae67963cd429267da4db1039de0bb712ef07::meme::RaffleEvent") || 
            t.starts_with("0xd7726cb41ba5b84c22af0038066baab6cf892ef9191cce0a6137f4642d57be5e::meme::RaffleEvent") {
             let data: RaffleEventOnChain = serde_json::from_str(event.data.as_str()).unwrap();
             // info!("");
