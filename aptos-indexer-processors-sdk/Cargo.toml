@@ -19,7 +19,8 @@ repository = "https://github.com/aptos-labs/aptos-indexer-processor-sdk"
 rust-version = "1.78"
 
 [workspace.dependencies]
-aptos-indexer-processor-sdk = { path = "sdk" }
+aptos-indexer-processor-sdk = { git = "https://github.com/aptos-labs/aptos-indexer-processor-sdk.git", rev = "605969487bdb1352979b49b9b2ae9526fddd8436" }
+aptos-indexer-processor-sdk-server-framework = { git = "https://github.com/aptos-labs/aptos-indexer-processor-sdk.git", rev = "605969487bdb1352979b49b9b2ae9526fddd8436" }
 aptos-indexer-transaction-stream = { path = "transaction-stream" }
 instrumented-channel = { path = "instrumented-channel" }
 aptos-moving-average = { path = "moving-average" }

@@ -21,13 +21,18 @@ const EVENT_TYPE_MAX_LENGTH: usize = 300;
 #[derive(Clone, Debug, Deserialize, Serialize)]
 /// On-chain representation of a message creation event
 pub struct RaffleEventOnChain {
-    pub coin_type: String,
+    pub fa_metadata: FaMetadata,
     pub sequence: String,
     pub winner: String,
     pub total_tickets: String,
     pub amount_apt: String,
     pub amount_token: String,
     pub timestamp: String
+}
+
+#[derive(Clone, Debug, Deserialize, Serialize)]
+pub struct FaMetadata {
+    pub inner: String,
 }
 
 
@@ -47,7 +52,7 @@ pub struct RaffleEvent {
     pub total_tickets: i64,
     pub amount_apt: i64,
     pub amount_token: i64,
-    pub timestamp_: i64,
+    pub timestamp: i64,
     pub event_index: i64,
     pub indexed_type: String,
 }
@@ -61,10 +66,8 @@ impl RaffleEvent {
     ) -> Option<Self> {
         let t: &str = event.type_str.as_ref();
 
-        // Monitor events from the new deployed module
-        if t.starts_with("0xb359560fc77127a3d1ccdad4bd7f8423997a16a3572dcea4e4dd747fd3ecd08b::meme::RaffleEvent") ||
-           t.starts_with("0xc58654a8eaa2818496ab82ae67dbae67963cd429267da4db1039de0bb712ef07::meme::RaffleEvent") || 
-           t.starts_with("0xd7726cb41ba5b84c22af0038066baab6cf892ef9191cce0a6137f4642d57be5e::meme::RaffleEvent") {
+        // Monitor events from the new deployed module (Devnet FA Raffle)
+        if t.starts_with("0x38804aa2186ed8e3a33e5c3dc071d8d0248f578dd7fa0bff382b72df85b8a22f::fa_raffle::RaffleEvent") {
             let data: RaffleEventOnChain = serde_json::from_str(event.data.as_str()).unwrap();
             // info!("");
             // info!("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
@@ -81,13 +84,13 @@ impl RaffleEvent {
                 transaction_version,
                 transaction_block_height,
                 type_: t.to_string(),
-                coin_type: data.coin_type,
+                coin_type: data.fa_metadata.inner,
                 sequence: data.sequence.parse().unwrap(),
                 winner: data.winner,
                 total_tickets: data.total_tickets.parse().unwrap(),
                 amount_apt: data.amount_apt.parse().unwrap(),
                 amount_token: data.amount_token.parse().unwrap(),
-                timestamp_: data.timestamp.parse().unwrap(),
+                timestamp: data.timestamp.parse().unwrap(),
                 event_index,
                 indexed_type: truncate_str(t, EVENT_TYPE_MAX_LENGTH),
             })

@@ -14,9 +14,7 @@ diesel::table! {
         sequence -> Int8,
         buyer -> Text,
         amount_apt -> Int8,
-        #[sql_name = "timestamp"]
-        timestamp_ -> Int8,
-        // status -> Bool,
+        timestamp -> Int8,
         inserted_at -> Timestamp,
         event_index -> Int8,
         #[max_length = 300]
@@ -40,8 +38,7 @@ diesel::table! {
         total_tickets -> Int8,
         amount_apt -> Int8,
         amount_token -> Int8,
-        #[sql_name = "timestamp"]
-        timestamp_ -> Int8,
+        timestamp -> Int8,
         inserted_at -> Timestamp,
         event_index -> Int8,
         #[max_length = 300]
@@ -49,7 +46,4 @@ diesel::table! {
     }
 }
 
-diesel::allow_tables_to_appear_in_same_query!(
-    buy_events,
-    raffle_events,
-);
+diesel::allow_tables_to_appear_in_same_query!(buy_events, raffle_events,);
