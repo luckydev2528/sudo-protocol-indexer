@@ -24,3 +24,10 @@ serde = { workspace = true }
 serde_json = { workspace = true }
 tokio = { workspace = true }
 tracing = { workspace = true }
+lazy_static = "1.4"
+parking_lot = "0.12"
+chrono = "0.4"
+axum = "0.7"
+tower = "0.4"
+tower-http = { version = "0.5", features = ["cors"] }
+tracing-subscriber = "0.3"

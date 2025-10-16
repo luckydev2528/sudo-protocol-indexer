@@ -46,4 +46,41 @@ diesel::table! {
     }
 }
 
-diesel::allow_tables_to_appear_in_same_query!(buy_events, raffle_events,);
+diesel::table! {
+    raffle_games (id) {
+        id -> Int4,
+        #[max_length = 255]
+        module_address -> Varchar,
+        #[max_length = 255]
+        fa_metadata_address -> Varchar,
+        #[max_length = 255]
+        name -> Varchar,
+        #[max_length = 50]
+        symbol -> Varchar,
+        description -> Nullable<Text>,
+        #[max_length = 500]
+        logo_uri -> Nullable<Varchar>,
+        #[max_length = 500]
+        metadata_uri -> Nullable<Varchar>,
+        #[max_length = 100]
+        price_per_ticket -> Varchar,
+        #[max_length = 100]
+        tokens_per_raffle -> Varchar,
+        #[max_length = 100]
+        circulating_supply -> Varchar,
+        raffle_frequency -> Int4,
+        #[max_length = 20]
+        frequency_unit -> Varchar,
+        #[max_length = 100]
+        start_timestamp -> Varchar,
+        #[max_length = 100]
+        end_timestamp -> Varchar,
+        #[max_length = 255]
+        creator_address -> Varchar,
+        is_active -> Bool,
+        created_at -> Timestamp,
+        updated_at -> Timestamp,
+    }
+}
+
+diesel::allow_tables_to_appear_in_same_query!(buy_events, raffle_events, raffle_games,);

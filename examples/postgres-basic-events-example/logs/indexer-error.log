@@ -1,0 +1,1882 @@
+2025-10-15T18:49:42: warning: unused import: `time::timestamp_to_iso`
+2025-10-15T18:49:42:  --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:3:52
+2025-10-15T18:49:42:   |
+2025-10-15T18:49:42: 3 |     utils::{additional_headers::AdditionalHeaders, time::timestamp_to_iso},
+2025-10-15T18:49:42:   |                                                    ^^^^^^^^^^^^^^^^^^^^^^
+2025-10-15T18:49:42:   |
+2025-10-15T18:49:42:   = note: `#[warn(unused_imports)]` on by default
+2025-10-15T18:49:42: 
+2025-10-15T18:49:42: warning: unused imports: `SampleRate` and `sample`
+2025-10-15T18:49:42:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:15:14
+2025-10-15T18:49:42:    |
+2025-10-15T18:49:42: 15 | use sample::{sample, SampleRate};
+2025-10-15T18:49:42:    |              ^^^^^^  ^^^^^^^^^^
+2025-10-15T18:49:42: 
+2025-10-15T18:49:42: warning: unused variable: `duration_in_secs`
+2025-10-15T18:49:42:    --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:447:29
+2025-10-15T18:49:42:     |
+2025-10-15T18:49:42: 447 |                         let duration_in_secs = grpc_channel_recv_latency.elapsed().as_secs_f64();
+2025-10-15T18:49:42:     |                             ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration_in_secs`
+2025-10-15T18:49:42:     |
+2025-10-15T18:49:42:     = note: `#[warn(unused_variables)]` on by default
+2025-10-15T18:49:42: 
+2025-10-15T18:49:42: warning: `aptos-indexer-transaction-stream` (lib) generated 3 warnings (run `cargo fix --lib -p aptos-indexer-transaction-stream` to apply 2 suggestions)
+2025-10-15T18:49:42: warning: hiding a lifetime that's elided elsewhere is confusing
+2025-10-15T18:49:42:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/sdk/src/postgres/utils/database.rs:47:39
+2025-10-15T18:49:42:    |
+2025-10-15T18:49:42: 47 | fn establish_connection(database_url: &str) -> BoxFuture<ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:49:42:    |                                       ^^^^     ---------------------------------------------- the same lifetime is hidden here
+2025-10-15T18:49:42:    |                                       |
+2025-10-15T18:49:42:    |                                       the lifetime is elided here
+2025-10-15T18:49:42:    |
+2025-10-15T18:49:42:    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+2025-10-15T18:49:42:    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+2025-10-15T18:49:42: help: use `'_` for type paths
+2025-10-15T18:49:42:    |
+2025-10-15T18:49:42: 47 | fn establish_connection(database_url: &str) -> BoxFuture<'_, ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:49:42:    |                                                          +++
+2025-10-15T18:49:42: 
+2025-10-15T18:49:42: warning: `aptos-indexer-processor-sdk` (lib) generated 1 warning
+2025-10-15T18:49:42:    Compiling postgres-basic-events-example v1.0.0 (/home/sudo/sudo-protocol-indexer/examples/postgres-basic-events-example)
+2025-10-15T18:50:05:     Finished `release` profile [optimized] target(s) in 23.34s
+2025-10-15T18:50:05:      Running `/home/sudo/sudo-protocol-indexer/examples/target/release/postgres-basic-events-example --config-path config.yaml`
+2025-10-15T18:50:05: Error: Chain ID Check Error: Wrong chain id detected! Trying to index chain 207 now but existing data is for chain 206
+2025-10-15T18:50:05: 
+2025-10-15T18:50:05: Stack backtrace:
+2025-10-15T18:50:05:    0: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from
+2025-10-15T18:50:05:    1: aptos_indexer_processor_sdk::postgres::basic_processor::basic_processor_function::process::{{closure}}::{{closure}}
+2025-10-15T18:50:05:    2: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:50:05:    3: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:50:05:    4: tokio::runtime::scheduler::multi_thread::worker::Context::run_task
+2025-10-15T18:50:05:    5: tokio::runtime::scheduler::multi_thread::worker::Context::run
+2025-10-15T18:50:05:    6: std::thread::local::LocalKey<T>::with
+2025-10-15T18:50:05:    7: tokio::runtime::context::runtime::enter_runtime
+2025-10-15T18:50:05:    8: tokio::runtime::scheduler::multi_thread::worker::run
+2025-10-15T18:50:05:    9: <tokio::runtime::blocking::task::BlockingTask<T> as core::future::future::Future>::poll
+2025-10-15T18:50:05:   10: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:50:05:   11: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:50:05:   12: tokio::runtime::blocking::pool::Inner::run
+2025-10-15T18:50:05:   13: std::sys::backtrace::__rust_begin_short_backtrace
+2025-10-15T18:50:05:   14: core::ops::function::FnOnce::call_once{{vtable.shim}}
+2025-10-15T18:50:05:   15: std::sys::pal::unix::thread::Thread::new::thread_start
+2025-10-15T18:50:05:   16: <unknown>
+2025-10-15T18:50:05:   17: <unknown>
+2025-10-15T18:50:10: warning: unused import: `time::timestamp_to_iso`
+2025-10-15T18:50:10:  --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:3:52
+2025-10-15T18:50:10:   |
+2025-10-15T18:50:10: 3 |     utils::{additional_headers::AdditionalHeaders, time::timestamp_to_iso},
+2025-10-15T18:50:10:   |                                                    ^^^^^^^^^^^^^^^^^^^^^^
+2025-10-15T18:50:10:   |
+2025-10-15T18:50:10:   = note: `#[warn(unused_imports)]` on by default
+2025-10-15T18:50:10: 
+2025-10-15T18:50:10: warning: unused imports: `SampleRate` and `sample`
+2025-10-15T18:50:10:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:15:14
+2025-10-15T18:50:10:    |
+2025-10-15T18:50:10: 15 | use sample::{sample, SampleRate};
+2025-10-15T18:50:10:    |              ^^^^^^  ^^^^^^^^^^
+2025-10-15T18:50:10: 
+2025-10-15T18:50:10: warning: unused variable: `duration_in_secs`
+2025-10-15T18:50:10:    --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:447:29
+2025-10-15T18:50:10:     |
+2025-10-15T18:50:10: 447 |                         let duration_in_secs = grpc_channel_recv_latency.elapsed().as_secs_f64();
+2025-10-15T18:50:10:     |                             ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration_in_secs`
+2025-10-15T18:50:10:     |
+2025-10-15T18:50:10:     = note: `#[warn(unused_variables)]` on by default
+2025-10-15T18:50:10: 
+2025-10-15T18:50:10: warning: `aptos-indexer-transaction-stream` (lib) generated 3 warnings (run `cargo fix --lib -p aptos-indexer-transaction-stream` to apply 2 suggestions)
+2025-10-15T18:50:10: warning: hiding a lifetime that's elided elsewhere is confusing
+2025-10-15T18:50:10:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/sdk/src/postgres/utils/database.rs:47:39
+2025-10-15T18:50:10:    |
+2025-10-15T18:50:10: 47 | fn establish_connection(database_url: &str) -> BoxFuture<ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:50:10:    |                                       ^^^^     ---------------------------------------------- the same lifetime is hidden here
+2025-10-15T18:50:10:    |                                       |
+2025-10-15T18:50:10:    |                                       the lifetime is elided here
+2025-10-15T18:50:10:    |
+2025-10-15T18:50:10:    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+2025-10-15T18:50:10:    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+2025-10-15T18:50:10: help: use `'_` for type paths
+2025-10-15T18:50:10:    |
+2025-10-15T18:50:10: 47 | fn establish_connection(database_url: &str) -> BoxFuture<'_, ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:50:10:    |                                                          +++
+2025-10-15T18:50:10: 
+2025-10-15T18:50:10: warning: `aptos-indexer-processor-sdk` (lib) generated 1 warning
+2025-10-15T18:50:10:     Finished `release` profile [optimized] target(s) in 0.70s
+2025-10-15T18:50:10:      Running `/home/sudo/sudo-protocol-indexer/examples/target/release/postgres-basic-events-example --config-path config.yaml`
+2025-10-15T18:50:10: Error: Chain ID Check Error: Wrong chain id detected! Trying to index chain 207 now but existing data is for chain 206
+2025-10-15T18:50:10: 
+2025-10-15T18:50:10: Stack backtrace:
+2025-10-15T18:50:10:    0: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from
+2025-10-15T18:50:10:    1: aptos_indexer_processor_sdk::postgres::basic_processor::basic_processor_function::process::{{closure}}::{{closure}}
+2025-10-15T18:50:10:    2: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:50:10:    3: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:50:10:    4: tokio::runtime::scheduler::multi_thread::worker::Context::run_task
+2025-10-15T18:50:10:    5: tokio::runtime::scheduler::multi_thread::worker::Context::run
+2025-10-15T18:50:10:    6: std::thread::local::LocalKey<T>::with
+2025-10-15T18:50:10:    7: tokio::runtime::context::runtime::enter_runtime
+2025-10-15T18:50:10:    8: tokio::runtime::scheduler::multi_thread::worker::run
+2025-10-15T18:50:10:    9: <tokio::runtime::blocking::task::BlockingTask<T> as core::future::future::Future>::poll
+2025-10-15T18:50:10:   10: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:50:10:   11: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:50:10:   12: tokio::runtime::blocking::pool::Inner::run
+2025-10-15T18:50:10:   13: std::sys::backtrace::__rust_begin_short_backtrace
+2025-10-15T18:50:10:   14: core::ops::function::FnOnce::call_once{{vtable.shim}}
+2025-10-15T18:50:10:   15: std::sys::pal::unix::thread::Thread::new::thread_start
+2025-10-15T18:50:10:   16: <unknown>
+2025-10-15T18:50:10:   17: <unknown>
+2025-10-15T18:50:15: warning: unused import: `time::timestamp_to_iso`
+2025-10-15T18:50:15:  --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:3:52
+2025-10-15T18:50:15:   |
+2025-10-15T18:50:15: 3 |     utils::{additional_headers::AdditionalHeaders, time::timestamp_to_iso},
+2025-10-15T18:50:15:   |                                                    ^^^^^^^^^^^^^^^^^^^^^^
+2025-10-15T18:50:15:   |
+2025-10-15T18:50:15:   = note: `#[warn(unused_imports)]` on by default
+2025-10-15T18:50:15: 
+2025-10-15T18:50:15: warning: unused imports: `SampleRate` and `sample`
+2025-10-15T18:50:15:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:15:14
+2025-10-15T18:50:15:    |
+2025-10-15T18:50:15: 15 | use sample::{sample, SampleRate};
+2025-10-15T18:50:15:    |              ^^^^^^  ^^^^^^^^^^
+2025-10-15T18:50:15: 
+2025-10-15T18:50:15: warning: unused variable: `duration_in_secs`
+2025-10-15T18:50:15:    --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:447:29
+2025-10-15T18:50:15:     |
+2025-10-15T18:50:15: 447 |                         let duration_in_secs = grpc_channel_recv_latency.elapsed().as_secs_f64();
+2025-10-15T18:50:15:     |                             ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration_in_secs`
+2025-10-15T18:50:15:     |
+2025-10-15T18:50:15:     = note: `#[warn(unused_variables)]` on by default
+2025-10-15T18:50:15: 
+2025-10-15T18:50:15: warning: `aptos-indexer-transaction-stream` (lib) generated 3 warnings (run `cargo fix --lib -p aptos-indexer-transaction-stream` to apply 2 suggestions)
+2025-10-15T18:50:15: warning: hiding a lifetime that's elided elsewhere is confusing
+2025-10-15T18:50:15:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/sdk/src/postgres/utils/database.rs:47:39
+2025-10-15T18:50:15:    |
+2025-10-15T18:50:15: 47 | fn establish_connection(database_url: &str) -> BoxFuture<ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:50:15:    |                                       ^^^^     ---------------------------------------------- the same lifetime is hidden here
+2025-10-15T18:50:15:    |                                       |
+2025-10-15T18:50:15:    |                                       the lifetime is elided here
+2025-10-15T18:50:15:    |
+2025-10-15T18:50:15:    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+2025-10-15T18:50:15:    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+2025-10-15T18:50:15: help: use `'_` for type paths
+2025-10-15T18:50:15:    |
+2025-10-15T18:50:15: 47 | fn establish_connection(database_url: &str) -> BoxFuture<'_, ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:50:15:    |                                                          +++
+2025-10-15T18:50:15: 
+2025-10-15T18:50:15: warning: `aptos-indexer-processor-sdk` (lib) generated 1 warning
+2025-10-15T18:50:15:     Finished `release` profile [optimized] target(s) in 0.75s
+2025-10-15T18:50:15:      Running `/home/sudo/sudo-protocol-indexer/examples/target/release/postgres-basic-events-example --config-path config.yaml`
+2025-10-15T18:50:15: Error: Chain ID Check Error: Wrong chain id detected! Trying to index chain 207 now but existing data is for chain 206
+2025-10-15T18:50:15: 
+2025-10-15T18:50:15: Stack backtrace:
+2025-10-15T18:50:15:    0: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from
+2025-10-15T18:50:15:    1: aptos_indexer_processor_sdk::postgres::basic_processor::basic_processor_function::process::{{closure}}::{{closure}}
+2025-10-15T18:50:15:    2: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:50:15:    3: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:50:15:    4: tokio::runtime::scheduler::multi_thread::worker::Context::run_task
+2025-10-15T18:50:15:    5: tokio::runtime::scheduler::multi_thread::worker::Context::run
+2025-10-15T18:50:15:    6: std::thread::local::LocalKey<T>::with
+2025-10-15T18:50:15:    7: tokio::runtime::context::runtime::enter_runtime
+2025-10-15T18:50:15:    8: tokio::runtime::scheduler::multi_thread::worker::run
+2025-10-15T18:50:15:    9: <tokio::runtime::blocking::task::BlockingTask<T> as core::future::future::Future>::poll
+2025-10-15T18:50:15:   10: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:50:15:   11: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:50:15:   12: tokio::runtime::blocking::pool::Inner::run
+2025-10-15T18:50:15:   13: std::sys::backtrace::__rust_begin_short_backtrace
+2025-10-15T18:50:15:   14: core::ops::function::FnOnce::call_once{{vtable.shim}}
+2025-10-15T18:50:15:   15: std::sys::pal::unix::thread::Thread::new::thread_start
+2025-10-15T18:50:15:   16: <unknown>
+2025-10-15T18:50:15:   17: <unknown>
+2025-10-15T18:50:21: warning: unused import: `time::timestamp_to_iso`
+2025-10-15T18:50:21:  --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:3:52
+2025-10-15T18:50:21:   |
+2025-10-15T18:50:21: 3 |     utils::{additional_headers::AdditionalHeaders, time::timestamp_to_iso},
+2025-10-15T18:50:21:   |                                                    ^^^^^^^^^^^^^^^^^^^^^^
+2025-10-15T18:50:21:   |
+2025-10-15T18:50:21:   = note: `#[warn(unused_imports)]` on by default
+2025-10-15T18:50:21: 
+2025-10-15T18:50:21: warning: unused imports: `SampleRate` and `sample`
+2025-10-15T18:50:21:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:15:14
+2025-10-15T18:50:21:    |
+2025-10-15T18:50:21: 15 | use sample::{sample, SampleRate};
+2025-10-15T18:50:21:    |              ^^^^^^  ^^^^^^^^^^
+2025-10-15T18:50:21: 
+2025-10-15T18:50:21: warning: unused variable: `duration_in_secs`
+2025-10-15T18:50:21:    --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:447:29
+2025-10-15T18:50:21:     |
+2025-10-15T18:50:21: 447 |                         let duration_in_secs = grpc_channel_recv_latency.elapsed().as_secs_f64();
+2025-10-15T18:50:21:     |                             ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration_in_secs`
+2025-10-15T18:50:21:     |
+2025-10-15T18:50:21:     = note: `#[warn(unused_variables)]` on by default
+2025-10-15T18:50:21: 
+2025-10-15T18:50:21: warning: `aptos-indexer-transaction-stream` (lib) generated 3 warnings (run `cargo fix --lib -p aptos-indexer-transaction-stream` to apply 2 suggestions)
+2025-10-15T18:50:21: warning: hiding a lifetime that's elided elsewhere is confusing
+2025-10-15T18:50:21:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/sdk/src/postgres/utils/database.rs:47:39
+2025-10-15T18:50:21:    |
+2025-10-15T18:50:21: 47 | fn establish_connection(database_url: &str) -> BoxFuture<ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:50:21:    |                                       ^^^^     ---------------------------------------------- the same lifetime is hidden here
+2025-10-15T18:50:21:    |                                       |
+2025-10-15T18:50:21:    |                                       the lifetime is elided here
+2025-10-15T18:50:21:    |
+2025-10-15T18:50:21:    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+2025-10-15T18:50:21:    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+2025-10-15T18:50:21: help: use `'_` for type paths
+2025-10-15T18:50:21:    |
+2025-10-15T18:50:21: 47 | fn establish_connection(database_url: &str) -> BoxFuture<'_, ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:50:21:    |                                                          +++
+2025-10-15T18:50:21: 
+2025-10-15T18:50:21: warning: `aptos-indexer-processor-sdk` (lib) generated 1 warning
+2025-10-15T18:50:21:     Finished `release` profile [optimized] target(s) in 0.72s
+2025-10-15T18:50:21:      Running `/home/sudo/sudo-protocol-indexer/examples/target/release/postgres-basic-events-example --config-path config.yaml`
+2025-10-15T18:50:21: Error: Chain ID Check Error: Wrong chain id detected! Trying to index chain 207 now but existing data is for chain 206
+2025-10-15T18:50:21: 
+2025-10-15T18:50:21: Stack backtrace:
+2025-10-15T18:50:21:    0: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from
+2025-10-15T18:50:21:    1: aptos_indexer_processor_sdk::postgres::basic_processor::basic_processor_function::process::{{closure}}::{{closure}}
+2025-10-15T18:50:21:    2: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:50:21:    3: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:50:21:    4: tokio::runtime::scheduler::multi_thread::worker::Context::run_task
+2025-10-15T18:50:21:    5: tokio::runtime::scheduler::multi_thread::worker::Context::run
+2025-10-15T18:50:21:    6: std::thread::local::LocalKey<T>::with
+2025-10-15T18:50:21:    7: tokio::runtime::context::runtime::enter_runtime
+2025-10-15T18:50:21:    8: tokio::runtime::scheduler::multi_thread::worker::run
+2025-10-15T18:50:21:    9: <tokio::runtime::blocking::task::BlockingTask<T> as core::future::future::Future>::poll
+2025-10-15T18:50:21:   10: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:50:21:   11: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:50:21:   12: tokio::runtime::blocking::pool::Inner::run
+2025-10-15T18:50:21:   13: std::sys::backtrace::__rust_begin_short_backtrace
+2025-10-15T18:50:21:   14: core::ops::function::FnOnce::call_once{{vtable.shim}}
+2025-10-15T18:50:21:   15: std::sys::pal::unix::thread::Thread::new::thread_start
+2025-10-15T18:50:21:   16: <unknown>
+2025-10-15T18:50:21:   17: <unknown>
+2025-10-15T18:50:26: warning: unused import: `time::timestamp_to_iso`
+2025-10-15T18:50:26:  --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:3:52
+2025-10-15T18:50:26:   |
+2025-10-15T18:50:26: 3 |     utils::{additional_headers::AdditionalHeaders, time::timestamp_to_iso},
+2025-10-15T18:50:26:   |                                                    ^^^^^^^^^^^^^^^^^^^^^^
+2025-10-15T18:50:26:   |
+2025-10-15T18:50:26:   = note: `#[warn(unused_imports)]` on by default
+2025-10-15T18:50:26: 
+2025-10-15T18:50:26: warning: unused imports: `SampleRate` and `sample`
+2025-10-15T18:50:26:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:15:14
+2025-10-15T18:50:26:    |
+2025-10-15T18:50:26: 15 | use sample::{sample, SampleRate};
+2025-10-15T18:50:26:    |              ^^^^^^  ^^^^^^^^^^
+2025-10-15T18:50:26: 
+2025-10-15T18:50:26: warning: unused variable: `duration_in_secs`
+2025-10-15T18:50:26:    --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:447:29
+2025-10-15T18:50:26:     |
+2025-10-15T18:50:26: 447 |                         let duration_in_secs = grpc_channel_recv_latency.elapsed().as_secs_f64();
+2025-10-15T18:50:26:     |                             ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration_in_secs`
+2025-10-15T18:50:26:     |
+2025-10-15T18:50:26:     = note: `#[warn(unused_variables)]` on by default
+2025-10-15T18:50:26: 
+2025-10-15T18:50:26: warning: `aptos-indexer-transaction-stream` (lib) generated 3 warnings (run `cargo fix --lib -p aptos-indexer-transaction-stream` to apply 2 suggestions)
+2025-10-15T18:50:26: warning: hiding a lifetime that's elided elsewhere is confusing
+2025-10-15T18:50:26:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/sdk/src/postgres/utils/database.rs:47:39
+2025-10-15T18:50:26:    |
+2025-10-15T18:50:26: 47 | fn establish_connection(database_url: &str) -> BoxFuture<ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:50:26:    |                                       ^^^^     ---------------------------------------------- the same lifetime is hidden here
+2025-10-15T18:50:26:    |                                       |
+2025-10-15T18:50:26:    |                                       the lifetime is elided here
+2025-10-15T18:50:26:    |
+2025-10-15T18:50:26:    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+2025-10-15T18:50:26:    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+2025-10-15T18:50:26: help: use `'_` for type paths
+2025-10-15T18:50:26:    |
+2025-10-15T18:50:26: 47 | fn establish_connection(database_url: &str) -> BoxFuture<'_, ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:50:26:    |                                                          +++
+2025-10-15T18:50:26: 
+2025-10-15T18:50:26: warning: `aptos-indexer-processor-sdk` (lib) generated 1 warning
+2025-10-15T18:50:26:     Finished `release` profile [optimized] target(s) in 0.74s
+2025-10-15T18:50:26:      Running `/home/sudo/sudo-protocol-indexer/examples/target/release/postgres-basic-events-example --config-path config.yaml`
+2025-10-15T18:50:26: Error: Chain ID Check Error: Wrong chain id detected! Trying to index chain 207 now but existing data is for chain 206
+2025-10-15T18:50:26: 
+2025-10-15T18:50:26: Stack backtrace:
+2025-10-15T18:50:26:    0: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from
+2025-10-15T18:50:26:    1: aptos_indexer_processor_sdk::postgres::basic_processor::basic_processor_function::process::{{closure}}::{{closure}}
+2025-10-15T18:50:26:    2: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:50:26:    3: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:50:26:    4: tokio::runtime::scheduler::multi_thread::worker::Context::run_task
+2025-10-15T18:50:26:    5: tokio::runtime::scheduler::multi_thread::worker::Context::run
+2025-10-15T18:50:26:    6: std::thread::local::LocalKey<T>::with
+2025-10-15T18:50:26:    7: tokio::runtime::context::runtime::enter_runtime
+2025-10-15T18:50:26:    8: tokio::runtime::scheduler::multi_thread::worker::run
+2025-10-15T18:50:26:    9: <tokio::runtime::blocking::task::BlockingTask<T> as core::future::future::Future>::poll
+2025-10-15T18:50:26:   10: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:50:26:   11: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:50:26:   12: tokio::runtime::blocking::pool::Inner::run
+2025-10-15T18:50:26:   13: std::sys::backtrace::__rust_begin_short_backtrace
+2025-10-15T18:50:26:   14: core::ops::function::FnOnce::call_once{{vtable.shim}}
+2025-10-15T18:50:26:   15: std::sys::pal::unix::thread::Thread::new::thread_start
+2025-10-15T18:50:26:   16: <unknown>
+2025-10-15T18:50:26:   17: <unknown>
+2025-10-15T18:50:31: warning: unused import: `time::timestamp_to_iso`
+2025-10-15T18:50:31:  --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:3:52
+2025-10-15T18:50:31:   |
+2025-10-15T18:50:31: 3 |     utils::{additional_headers::AdditionalHeaders, time::timestamp_to_iso},
+2025-10-15T18:50:31:   |                                                    ^^^^^^^^^^^^^^^^^^^^^^
+2025-10-15T18:50:31:   |
+2025-10-15T18:50:31:   = note: `#[warn(unused_imports)]` on by default
+2025-10-15T18:50:31: 
+2025-10-15T18:50:31: warning: unused imports: `SampleRate` and `sample`
+2025-10-15T18:50:31:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:15:14
+2025-10-15T18:50:31:    |
+2025-10-15T18:50:31: 15 | use sample::{sample, SampleRate};
+2025-10-15T18:50:31:    |              ^^^^^^  ^^^^^^^^^^
+2025-10-15T18:50:31: 
+2025-10-15T18:50:31: warning: unused variable: `duration_in_secs`
+2025-10-15T18:50:31:    --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:447:29
+2025-10-15T18:50:31:     |
+2025-10-15T18:50:31: 447 |                         let duration_in_secs = grpc_channel_recv_latency.elapsed().as_secs_f64();
+2025-10-15T18:50:31:     |                             ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration_in_secs`
+2025-10-15T18:50:31:     |
+2025-10-15T18:50:31:     = note: `#[warn(unused_variables)]` on by default
+2025-10-15T18:50:31: 
+2025-10-15T18:50:31: warning: `aptos-indexer-transaction-stream` (lib) generated 3 warnings (run `cargo fix --lib -p aptos-indexer-transaction-stream` to apply 2 suggestions)
+2025-10-15T18:50:31: warning: hiding a lifetime that's elided elsewhere is confusing
+2025-10-15T18:50:31:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/sdk/src/postgres/utils/database.rs:47:39
+2025-10-15T18:50:31:    |
+2025-10-15T18:50:31: 47 | fn establish_connection(database_url: &str) -> BoxFuture<ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:50:31:    |                                       ^^^^     ---------------------------------------------- the same lifetime is hidden here
+2025-10-15T18:50:31:    |                                       |
+2025-10-15T18:50:31:    |                                       the lifetime is elided here
+2025-10-15T18:50:31:    |
+2025-10-15T18:50:31:    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+2025-10-15T18:50:31:    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+2025-10-15T18:50:31: help: use `'_` for type paths
+2025-10-15T18:50:31:    |
+2025-10-15T18:50:31: 47 | fn establish_connection(database_url: &str) -> BoxFuture<'_, ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:50:31:    |                                                          +++
+2025-10-15T18:50:31: 
+2025-10-15T18:50:31: warning: `aptos-indexer-processor-sdk` (lib) generated 1 warning
+2025-10-15T18:50:31:     Finished `release` profile [optimized] target(s) in 0.81s
+2025-10-15T18:50:31:      Running `/home/sudo/sudo-protocol-indexer/examples/target/release/postgres-basic-events-example --config-path config.yaml`
+2025-10-15T18:50:31: Error: Chain ID Check Error: Wrong chain id detected! Trying to index chain 207 now but existing data is for chain 206
+2025-10-15T18:50:31: 
+2025-10-15T18:50:31: Stack backtrace:
+2025-10-15T18:50:31:    0: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from
+2025-10-15T18:50:31:    1: aptos_indexer_processor_sdk::postgres::basic_processor::basic_processor_function::process::{{closure}}::{{closure}}
+2025-10-15T18:50:31:    2: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:50:31:    3: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:50:31:    4: tokio::runtime::scheduler::multi_thread::worker::Context::run_task
+2025-10-15T18:50:31:    5: tokio::runtime::scheduler::multi_thread::worker::Context::run
+2025-10-15T18:50:31:    6: std::thread::local::LocalKey<T>::with
+2025-10-15T18:50:31:    7: tokio::runtime::context::runtime::enter_runtime
+2025-10-15T18:50:31:    8: tokio::runtime::scheduler::multi_thread::worker::run
+2025-10-15T18:50:31:    9: <tokio::runtime::blocking::task::BlockingTask<T> as core::future::future::Future>::poll
+2025-10-15T18:50:31:   10: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:50:31:   11: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:50:31:   12: tokio::runtime::blocking::pool::Inner::run
+2025-10-15T18:50:31:   13: std::sys::backtrace::__rust_begin_short_backtrace
+2025-10-15T18:50:31:   14: core::ops::function::FnOnce::call_once{{vtable.shim}}
+2025-10-15T18:50:31:   15: std::sys::pal::unix::thread::Thread::new::thread_start
+2025-10-15T18:50:31:   16: <unknown>
+2025-10-15T18:50:31:   17: <unknown>
+2025-10-15T18:50:37: warning: unused import: `time::timestamp_to_iso`
+2025-10-15T18:50:37:  --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:3:52
+2025-10-15T18:50:37:   |
+2025-10-15T18:50:37: 3 |     utils::{additional_headers::AdditionalHeaders, time::timestamp_to_iso},
+2025-10-15T18:50:37:   |                                                    ^^^^^^^^^^^^^^^^^^^^^^
+2025-10-15T18:50:37:   |
+2025-10-15T18:50:37:   = note: `#[warn(unused_imports)]` on by default
+2025-10-15T18:50:37: 
+2025-10-15T18:50:37: warning: unused imports: `SampleRate` and `sample`
+2025-10-15T18:50:37:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:15:14
+2025-10-15T18:50:37:    |
+2025-10-15T18:50:37: 15 | use sample::{sample, SampleRate};
+2025-10-15T18:50:37:    |              ^^^^^^  ^^^^^^^^^^
+2025-10-15T18:50:37: 
+2025-10-15T18:50:37: warning: unused variable: `duration_in_secs`
+2025-10-15T18:50:37:    --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:447:29
+2025-10-15T18:50:37:     |
+2025-10-15T18:50:37: 447 |                         let duration_in_secs = grpc_channel_recv_latency.elapsed().as_secs_f64();
+2025-10-15T18:50:37:     |                             ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration_in_secs`
+2025-10-15T18:50:37:     |
+2025-10-15T18:50:37:     = note: `#[warn(unused_variables)]` on by default
+2025-10-15T18:50:37: 
+2025-10-15T18:50:37: warning: `aptos-indexer-transaction-stream` (lib) generated 3 warnings (run `cargo fix --lib -p aptos-indexer-transaction-stream` to apply 2 suggestions)
+2025-10-15T18:50:37: warning: hiding a lifetime that's elided elsewhere is confusing
+2025-10-15T18:50:37:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/sdk/src/postgres/utils/database.rs:47:39
+2025-10-15T18:50:37:    |
+2025-10-15T18:50:37: 47 | fn establish_connection(database_url: &str) -> BoxFuture<ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:50:37:    |                                       ^^^^     ---------------------------------------------- the same lifetime is hidden here
+2025-10-15T18:50:37:    |                                       |
+2025-10-15T18:50:37:    |                                       the lifetime is elided here
+2025-10-15T18:50:37:    |
+2025-10-15T18:50:37:    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+2025-10-15T18:50:37:    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+2025-10-15T18:50:37: help: use `'_` for type paths
+2025-10-15T18:50:37:    |
+2025-10-15T18:50:37: 47 | fn establish_connection(database_url: &str) -> BoxFuture<'_, ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:50:37:    |                                                          +++
+2025-10-15T18:50:37: 
+2025-10-15T18:50:37: warning: `aptos-indexer-processor-sdk` (lib) generated 1 warning
+2025-10-15T18:50:37:     Finished `release` profile [optimized] target(s) in 0.73s
+2025-10-15T18:50:37:      Running `/home/sudo/sudo-protocol-indexer/examples/target/release/postgres-basic-events-example --config-path config.yaml`
+2025-10-15T18:50:37: Error: Chain ID Check Error: Wrong chain id detected! Trying to index chain 207 now but existing data is for chain 206
+2025-10-15T18:50:37: 
+2025-10-15T18:50:37: Stack backtrace:
+2025-10-15T18:50:37:    0: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from
+2025-10-15T18:50:37:    1: aptos_indexer_processor_sdk::postgres::basic_processor::basic_processor_function::process::{{closure}}::{{closure}}
+2025-10-15T18:50:37:    2: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:50:37:    3: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:50:37:    4: tokio::runtime::scheduler::multi_thread::worker::Context::run_task
+2025-10-15T18:50:37:    5: tokio::runtime::scheduler::multi_thread::worker::Context::run
+2025-10-15T18:50:37:    6: std::thread::local::LocalKey<T>::with
+2025-10-15T18:50:37:    7: tokio::runtime::context::runtime::enter_runtime
+2025-10-15T18:50:37:    8: tokio::runtime::scheduler::multi_thread::worker::run
+2025-10-15T18:50:37:    9: <tokio::runtime::blocking::task::BlockingTask<T> as core::future::future::Future>::poll
+2025-10-15T18:50:37:   10: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:50:37:   11: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:50:37:   12: tokio::runtime::blocking::pool::Inner::run
+2025-10-15T18:50:37:   13: std::sys::backtrace::__rust_begin_short_backtrace
+2025-10-15T18:50:37:   14: core::ops::function::FnOnce::call_once{{vtable.shim}}
+2025-10-15T18:50:37:   15: std::sys::pal::unix::thread::Thread::new::thread_start
+2025-10-15T18:50:37:   16: <unknown>
+2025-10-15T18:50:37:   17: <unknown>
+2025-10-15T18:50:42: warning: unused import: `time::timestamp_to_iso`
+2025-10-15T18:50:42:  --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:3:52
+2025-10-15T18:50:42:   |
+2025-10-15T18:50:42: 3 |     utils::{additional_headers::AdditionalHeaders, time::timestamp_to_iso},
+2025-10-15T18:50:42:   |                                                    ^^^^^^^^^^^^^^^^^^^^^^
+2025-10-15T18:50:42:   |
+2025-10-15T18:50:42:   = note: `#[warn(unused_imports)]` on by default
+2025-10-15T18:50:42: 
+2025-10-15T18:50:42: warning: unused imports: `SampleRate` and `sample`
+2025-10-15T18:50:42:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:15:14
+2025-10-15T18:50:42:    |
+2025-10-15T18:50:42: 15 | use sample::{sample, SampleRate};
+2025-10-15T18:50:42:    |              ^^^^^^  ^^^^^^^^^^
+2025-10-15T18:50:42: 
+2025-10-15T18:50:42: warning: unused variable: `duration_in_secs`
+2025-10-15T18:50:42:    --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:447:29
+2025-10-15T18:50:42:     |
+2025-10-15T18:50:42: 447 |                         let duration_in_secs = grpc_channel_recv_latency.elapsed().as_secs_f64();
+2025-10-15T18:50:42:     |                             ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration_in_secs`
+2025-10-15T18:50:42:     |
+2025-10-15T18:50:42:     = note: `#[warn(unused_variables)]` on by default
+2025-10-15T18:50:42: 
+2025-10-15T18:50:42: warning: `aptos-indexer-transaction-stream` (lib) generated 3 warnings (run `cargo fix --lib -p aptos-indexer-transaction-stream` to apply 2 suggestions)
+2025-10-15T18:50:42: warning: hiding a lifetime that's elided elsewhere is confusing
+2025-10-15T18:50:42:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/sdk/src/postgres/utils/database.rs:47:39
+2025-10-15T18:50:42:    |
+2025-10-15T18:50:42: 47 | fn establish_connection(database_url: &str) -> BoxFuture<ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:50:42:    |                                       ^^^^     ---------------------------------------------- the same lifetime is hidden here
+2025-10-15T18:50:42:    |                                       |
+2025-10-15T18:50:42:    |                                       the lifetime is elided here
+2025-10-15T18:50:42:    |
+2025-10-15T18:50:42:    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+2025-10-15T18:50:42:    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+2025-10-15T18:50:42: help: use `'_` for type paths
+2025-10-15T18:50:42:    |
+2025-10-15T18:50:42: 47 | fn establish_connection(database_url: &str) -> BoxFuture<'_, ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:50:42:    |                                                          +++
+2025-10-15T18:50:42: 
+2025-10-15T18:50:42: warning: `aptos-indexer-processor-sdk` (lib) generated 1 warning
+2025-10-15T18:50:42:     Finished `release` profile [optimized] target(s) in 0.74s
+2025-10-15T18:50:42:      Running `/home/sudo/sudo-protocol-indexer/examples/target/release/postgres-basic-events-example --config-path config.yaml`
+2025-10-15T18:50:42: Error: Chain ID Check Error: Wrong chain id detected! Trying to index chain 207 now but existing data is for chain 206
+2025-10-15T18:50:42: 
+2025-10-15T18:50:42: Stack backtrace:
+2025-10-15T18:50:42:    0: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from
+2025-10-15T18:50:42:    1: aptos_indexer_processor_sdk::postgres::basic_processor::basic_processor_function::process::{{closure}}::{{closure}}
+2025-10-15T18:50:42:    2: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:50:42:    3: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:50:42:    4: tokio::runtime::scheduler::multi_thread::worker::Context::run_task
+2025-10-15T18:50:42:    5: tokio::runtime::scheduler::multi_thread::worker::Context::run
+2025-10-15T18:50:42:    6: std::thread::local::LocalKey<T>::with
+2025-10-15T18:50:42:    7: tokio::runtime::context::runtime::enter_runtime
+2025-10-15T18:50:42:    8: tokio::runtime::scheduler::multi_thread::worker::run
+2025-10-15T18:50:42:    9: <tokio::runtime::blocking::task::BlockingTask<T> as core::future::future::Future>::poll
+2025-10-15T18:50:42:   10: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:50:42:   11: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:50:42:   12: tokio::runtime::blocking::pool::Inner::run
+2025-10-15T18:50:42:   13: std::sys::backtrace::__rust_begin_short_backtrace
+2025-10-15T18:50:42:   14: core::ops::function::FnOnce::call_once{{vtable.shim}}
+2025-10-15T18:50:42:   15: std::sys::pal::unix::thread::Thread::new::thread_start
+2025-10-15T18:50:42:   16: <unknown>
+2025-10-15T18:50:42:   17: <unknown>
+2025-10-15T18:50:47: warning: unused import: `time::timestamp_to_iso`
+2025-10-15T18:50:47:  --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:3:52
+2025-10-15T18:50:47:   |
+2025-10-15T18:50:47: 3 |     utils::{additional_headers::AdditionalHeaders, time::timestamp_to_iso},
+2025-10-15T18:50:47:   |                                                    ^^^^^^^^^^^^^^^^^^^^^^
+2025-10-15T18:50:47:   |
+2025-10-15T18:50:47:   = note: `#[warn(unused_imports)]` on by default
+2025-10-15T18:50:47: 
+2025-10-15T18:50:47: warning: unused imports: `SampleRate` and `sample`
+2025-10-15T18:50:47:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:15:14
+2025-10-15T18:50:47:    |
+2025-10-15T18:50:47: 15 | use sample::{sample, SampleRate};
+2025-10-15T18:50:47:    |              ^^^^^^  ^^^^^^^^^^
+2025-10-15T18:50:47: 
+2025-10-15T18:50:47: warning: unused variable: `duration_in_secs`
+2025-10-15T18:50:47:    --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:447:29
+2025-10-15T18:50:47:     |
+2025-10-15T18:50:47: 447 |                         let duration_in_secs = grpc_channel_recv_latency.elapsed().as_secs_f64();
+2025-10-15T18:50:47:     |                             ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration_in_secs`
+2025-10-15T18:50:47:     |
+2025-10-15T18:50:47:     = note: `#[warn(unused_variables)]` on by default
+2025-10-15T18:50:47: 
+2025-10-15T18:50:47: warning: `aptos-indexer-transaction-stream` (lib) generated 3 warnings (run `cargo fix --lib -p aptos-indexer-transaction-stream` to apply 2 suggestions)
+2025-10-15T18:50:47: warning: hiding a lifetime that's elided elsewhere is confusing
+2025-10-15T18:50:47:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/sdk/src/postgres/utils/database.rs:47:39
+2025-10-15T18:50:47:    |
+2025-10-15T18:50:47: 47 | fn establish_connection(database_url: &str) -> BoxFuture<ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:50:47:    |                                       ^^^^     ---------------------------------------------- the same lifetime is hidden here
+2025-10-15T18:50:47:    |                                       |
+2025-10-15T18:50:47:    |                                       the lifetime is elided here
+2025-10-15T18:50:47:    |
+2025-10-15T18:50:47:    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+2025-10-15T18:50:47:    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+2025-10-15T18:50:47: help: use `'_` for type paths
+2025-10-15T18:50:47:    |
+2025-10-15T18:50:47: 47 | fn establish_connection(database_url: &str) -> BoxFuture<'_, ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:50:47:    |                                                          +++
+2025-10-15T18:50:47: 
+2025-10-15T18:50:47: warning: `aptos-indexer-processor-sdk` (lib) generated 1 warning
+2025-10-15T18:50:47:     Finished `release` profile [optimized] target(s) in 0.72s
+2025-10-15T18:50:47:      Running `/home/sudo/sudo-protocol-indexer/examples/target/release/postgres-basic-events-example --config-path config.yaml`
+2025-10-15T18:50:47: Error: Chain ID Check Error: Wrong chain id detected! Trying to index chain 207 now but existing data is for chain 206
+2025-10-15T18:50:47: 
+2025-10-15T18:50:47: Stack backtrace:
+2025-10-15T18:50:47:    0: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from
+2025-10-15T18:50:47:    1: aptos_indexer_processor_sdk::postgres::basic_processor::basic_processor_function::process::{{closure}}::{{closure}}
+2025-10-15T18:50:47:    2: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:50:47:    3: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:50:47:    4: tokio::runtime::scheduler::multi_thread::worker::Context::run_task
+2025-10-15T18:50:47:    5: tokio::runtime::scheduler::multi_thread::worker::Context::run
+2025-10-15T18:50:47:    6: std::thread::local::LocalKey<T>::with
+2025-10-15T18:50:47:    7: tokio::runtime::context::runtime::enter_runtime
+2025-10-15T18:50:47:    8: tokio::runtime::scheduler::multi_thread::worker::run
+2025-10-15T18:50:47:    9: <tokio::runtime::blocking::task::BlockingTask<T> as core::future::future::Future>::poll
+2025-10-15T18:50:47:   10: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:50:47:   11: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:50:47:   12: tokio::runtime::blocking::pool::Inner::run
+2025-10-15T18:50:47:   13: std::sys::backtrace::__rust_begin_short_backtrace
+2025-10-15T18:50:47:   14: core::ops::function::FnOnce::call_once{{vtable.shim}}
+2025-10-15T18:50:47:   15: std::sys::pal::unix::thread::Thread::new::thread_start
+2025-10-15T18:50:47:   16: <unknown>
+2025-10-15T18:50:47:   17: <unknown>
+2025-10-15T18:50:53: warning: unused import: `time::timestamp_to_iso`
+2025-10-15T18:50:53:  --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:3:52
+2025-10-15T18:50:53:   |
+2025-10-15T18:50:53: 3 |     utils::{additional_headers::AdditionalHeaders, time::timestamp_to_iso},
+2025-10-15T18:50:53:   |                                                    ^^^^^^^^^^^^^^^^^^^^^^
+2025-10-15T18:50:53:   |
+2025-10-15T18:50:53:   = note: `#[warn(unused_imports)]` on by default
+2025-10-15T18:50:53: 
+2025-10-15T18:50:53: warning: unused imports: `SampleRate` and `sample`
+2025-10-15T18:50:53:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:15:14
+2025-10-15T18:50:53:    |
+2025-10-15T18:50:53: 15 | use sample::{sample, SampleRate};
+2025-10-15T18:50:53:    |              ^^^^^^  ^^^^^^^^^^
+2025-10-15T18:50:53: 
+2025-10-15T18:50:53: warning: unused variable: `duration_in_secs`
+2025-10-15T18:50:53:    --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:447:29
+2025-10-15T18:50:53:     |
+2025-10-15T18:50:53: 447 |                         let duration_in_secs = grpc_channel_recv_latency.elapsed().as_secs_f64();
+2025-10-15T18:50:53:     |                             ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration_in_secs`
+2025-10-15T18:50:53:     |
+2025-10-15T18:50:53:     = note: `#[warn(unused_variables)]` on by default
+2025-10-15T18:50:53: 
+2025-10-15T18:50:53: warning: `aptos-indexer-transaction-stream` (lib) generated 3 warnings (run `cargo fix --lib -p aptos-indexer-transaction-stream` to apply 2 suggestions)
+2025-10-15T18:50:53: warning: hiding a lifetime that's elided elsewhere is confusing
+2025-10-15T18:50:53:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/sdk/src/postgres/utils/database.rs:47:39
+2025-10-15T18:50:53:    |
+2025-10-15T18:50:53: 47 | fn establish_connection(database_url: &str) -> BoxFuture<ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:50:53:    |                                       ^^^^     ---------------------------------------------- the same lifetime is hidden here
+2025-10-15T18:50:53:    |                                       |
+2025-10-15T18:50:53:    |                                       the lifetime is elided here
+2025-10-15T18:50:53:    |
+2025-10-15T18:50:53:    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+2025-10-15T18:50:53:    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+2025-10-15T18:50:53: help: use `'_` for type paths
+2025-10-15T18:50:53:    |
+2025-10-15T18:50:53: 47 | fn establish_connection(database_url: &str) -> BoxFuture<'_, ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:50:53:    |                                                          +++
+2025-10-15T18:50:53: 
+2025-10-15T18:50:53: warning: `aptos-indexer-processor-sdk` (lib) generated 1 warning
+2025-10-15T18:50:53:     Finished `release` profile [optimized] target(s) in 0.73s
+2025-10-15T18:50:53:      Running `/home/sudo/sudo-protocol-indexer/examples/target/release/postgres-basic-events-example --config-path config.yaml`
+2025-10-15T18:50:53: Error: Chain ID Check Error: Wrong chain id detected! Trying to index chain 207 now but existing data is for chain 206
+2025-10-15T18:50:53: 
+2025-10-15T18:50:53: Stack backtrace:
+2025-10-15T18:50:53:    0: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from
+2025-10-15T18:50:53:    1: aptos_indexer_processor_sdk::postgres::basic_processor::basic_processor_function::process::{{closure}}::{{closure}}
+2025-10-15T18:50:53:    2: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:50:53:    3: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:50:53:    4: tokio::runtime::scheduler::multi_thread::worker::Context::run_task
+2025-10-15T18:50:53:    5: tokio::runtime::scheduler::multi_thread::worker::Context::run
+2025-10-15T18:50:53:    6: std::thread::local::LocalKey<T>::with
+2025-10-15T18:50:53:    7: tokio::runtime::context::runtime::enter_runtime
+2025-10-15T18:50:53:    8: tokio::runtime::scheduler::multi_thread::worker::run
+2025-10-15T18:50:53:    9: <tokio::runtime::blocking::task::BlockingTask<T> as core::future::future::Future>::poll
+2025-10-15T18:50:53:   10: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:50:53:   11: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:50:53:   12: tokio::runtime::blocking::pool::Inner::run
+2025-10-15T18:50:53:   13: std::sys::backtrace::__rust_begin_short_backtrace
+2025-10-15T18:50:53:   14: core::ops::function::FnOnce::call_once{{vtable.shim}}
+2025-10-15T18:50:53:   15: std::sys::pal::unix::thread::Thread::new::thread_start
+2025-10-15T18:50:53:   16: <unknown>
+2025-10-15T18:50:53:   17: <unknown>
+2025-10-15T18:50:58: warning: unused import: `time::timestamp_to_iso`
+2025-10-15T18:50:58:  --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:3:52
+2025-10-15T18:50:58:   |
+2025-10-15T18:50:58: 3 |     utils::{additional_headers::AdditionalHeaders, time::timestamp_to_iso},
+2025-10-15T18:50:58:   |                                                    ^^^^^^^^^^^^^^^^^^^^^^
+2025-10-15T18:50:58:   |
+2025-10-15T18:50:58:   = note: `#[warn(unused_imports)]` on by default
+2025-10-15T18:50:58: 
+2025-10-15T18:50:58: warning: unused imports: `SampleRate` and `sample`
+2025-10-15T18:50:58:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:15:14
+2025-10-15T18:50:58:    |
+2025-10-15T18:50:58: 15 | use sample::{sample, SampleRate};
+2025-10-15T18:50:58:    |              ^^^^^^  ^^^^^^^^^^
+2025-10-15T18:50:58: 
+2025-10-15T18:50:58: warning: unused variable: `duration_in_secs`
+2025-10-15T18:50:58:    --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:447:29
+2025-10-15T18:50:58:     |
+2025-10-15T18:50:58: 447 |                         let duration_in_secs = grpc_channel_recv_latency.elapsed().as_secs_f64();
+2025-10-15T18:50:58:     |                             ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration_in_secs`
+2025-10-15T18:50:58:     |
+2025-10-15T18:50:58:     = note: `#[warn(unused_variables)]` on by default
+2025-10-15T18:50:58: 
+2025-10-15T18:50:58: warning: `aptos-indexer-transaction-stream` (lib) generated 3 warnings (run `cargo fix --lib -p aptos-indexer-transaction-stream` to apply 2 suggestions)
+2025-10-15T18:50:58: warning: hiding a lifetime that's elided elsewhere is confusing
+2025-10-15T18:50:58:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/sdk/src/postgres/utils/database.rs:47:39
+2025-10-15T18:50:58:    |
+2025-10-15T18:50:58: 47 | fn establish_connection(database_url: &str) -> BoxFuture<ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:50:58:    |                                       ^^^^     ---------------------------------------------- the same lifetime is hidden here
+2025-10-15T18:50:58:    |                                       |
+2025-10-15T18:50:58:    |                                       the lifetime is elided here
+2025-10-15T18:50:58:    |
+2025-10-15T18:50:58:    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+2025-10-15T18:50:58:    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+2025-10-15T18:50:58: help: use `'_` for type paths
+2025-10-15T18:50:58:    |
+2025-10-15T18:50:58: 47 | fn establish_connection(database_url: &str) -> BoxFuture<'_, ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:50:58:    |                                                          +++
+2025-10-15T18:50:58: 
+2025-10-15T18:50:58: warning: `aptos-indexer-processor-sdk` (lib) generated 1 warning
+2025-10-15T18:50:58:     Finished `release` profile [optimized] target(s) in 0.73s
+2025-10-15T18:50:58:      Running `/home/sudo/sudo-protocol-indexer/examples/target/release/postgres-basic-events-example --config-path config.yaml`
+2025-10-15T18:50:58: Error: Chain ID Check Error: Wrong chain id detected! Trying to index chain 207 now but existing data is for chain 206
+2025-10-15T18:50:58: 
+2025-10-15T18:50:58: Stack backtrace:
+2025-10-15T18:50:58:    0: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from
+2025-10-15T18:50:58:    1: aptos_indexer_processor_sdk::postgres::basic_processor::basic_processor_function::process::{{closure}}::{{closure}}
+2025-10-15T18:50:58:    2: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:50:58:    3: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:50:58:    4: tokio::runtime::scheduler::multi_thread::worker::Context::run_task
+2025-10-15T18:50:58:    5: tokio::runtime::scheduler::multi_thread::worker::Context::run
+2025-10-15T18:50:58:    6: std::thread::local::LocalKey<T>::with
+2025-10-15T18:50:58:    7: tokio::runtime::context::runtime::enter_runtime
+2025-10-15T18:50:58:    8: tokio::runtime::scheduler::multi_thread::worker::run
+2025-10-15T18:50:58:    9: <tokio::runtime::blocking::task::BlockingTask<T> as core::future::future::Future>::poll
+2025-10-15T18:50:58:   10: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:50:58:   11: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:50:58:   12: tokio::runtime::blocking::pool::Inner::run
+2025-10-15T18:50:58:   13: std::sys::backtrace::__rust_begin_short_backtrace
+2025-10-15T18:50:58:   14: core::ops::function::FnOnce::call_once{{vtable.shim}}
+2025-10-15T18:50:58:   15: std::sys::pal::unix::thread::Thread::new::thread_start
+2025-10-15T18:50:58:   16: <unknown>
+2025-10-15T18:50:58:   17: <unknown>
+2025-10-15T18:51:03: warning: unused import: `time::timestamp_to_iso`
+2025-10-15T18:51:03:  --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:3:52
+2025-10-15T18:51:03:   |
+2025-10-15T18:51:03: 3 |     utils::{additional_headers::AdditionalHeaders, time::timestamp_to_iso},
+2025-10-15T18:51:03:   |                                                    ^^^^^^^^^^^^^^^^^^^^^^
+2025-10-15T18:51:03:   |
+2025-10-15T18:51:03:   = note: `#[warn(unused_imports)]` on by default
+2025-10-15T18:51:03: 
+2025-10-15T18:51:03: warning: unused imports: `SampleRate` and `sample`
+2025-10-15T18:51:03:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:15:14
+2025-10-15T18:51:03:    |
+2025-10-15T18:51:03: 15 | use sample::{sample, SampleRate};
+2025-10-15T18:51:03:    |              ^^^^^^  ^^^^^^^^^^
+2025-10-15T18:51:03: 
+2025-10-15T18:51:03: warning: unused variable: `duration_in_secs`
+2025-10-15T18:51:03:    --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:447:29
+2025-10-15T18:51:03:     |
+2025-10-15T18:51:03: 447 |                         let duration_in_secs = grpc_channel_recv_latency.elapsed().as_secs_f64();
+2025-10-15T18:51:03:     |                             ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration_in_secs`
+2025-10-15T18:51:03:     |
+2025-10-15T18:51:03:     = note: `#[warn(unused_variables)]` on by default
+2025-10-15T18:51:03: 
+2025-10-15T18:51:03: warning: `aptos-indexer-transaction-stream` (lib) generated 3 warnings (run `cargo fix --lib -p aptos-indexer-transaction-stream` to apply 2 suggestions)
+2025-10-15T18:51:03: warning: hiding a lifetime that's elided elsewhere is confusing
+2025-10-15T18:51:03:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/sdk/src/postgres/utils/database.rs:47:39
+2025-10-15T18:51:03:    |
+2025-10-15T18:51:03: 47 | fn establish_connection(database_url: &str) -> BoxFuture<ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:51:03:    |                                       ^^^^     ---------------------------------------------- the same lifetime is hidden here
+2025-10-15T18:51:03:    |                                       |
+2025-10-15T18:51:03:    |                                       the lifetime is elided here
+2025-10-15T18:51:03:    |
+2025-10-15T18:51:03:    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+2025-10-15T18:51:03:    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+2025-10-15T18:51:03: help: use `'_` for type paths
+2025-10-15T18:51:03:    |
+2025-10-15T18:51:03: 47 | fn establish_connection(database_url: &str) -> BoxFuture<'_, ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:51:03:    |                                                          +++
+2025-10-15T18:51:03: 
+2025-10-15T18:51:03: warning: `aptos-indexer-processor-sdk` (lib) generated 1 warning
+2025-10-15T18:51:03:     Finished `release` profile [optimized] target(s) in 0.75s
+2025-10-15T18:51:03:      Running `/home/sudo/sudo-protocol-indexer/examples/target/release/postgres-basic-events-example --config-path config.yaml`
+2025-10-15T18:51:03: Error: Chain ID Check Error: Wrong chain id detected! Trying to index chain 207 now but existing data is for chain 206
+2025-10-15T18:51:03: 
+2025-10-15T18:51:03: Stack backtrace:
+2025-10-15T18:51:03:    0: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from
+2025-10-15T18:51:03:    1: aptos_indexer_processor_sdk::postgres::basic_processor::basic_processor_function::process::{{closure}}::{{closure}}
+2025-10-15T18:51:03:    2: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:51:03:    3: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:51:03:    4: tokio::runtime::scheduler::multi_thread::worker::Context::run_task
+2025-10-15T18:51:03:    5: tokio::runtime::scheduler::multi_thread::worker::Context::run
+2025-10-15T18:51:03:    6: std::thread::local::LocalKey<T>::with
+2025-10-15T18:51:03:    7: tokio::runtime::context::runtime::enter_runtime
+2025-10-15T18:51:03:    8: tokio::runtime::scheduler::multi_thread::worker::run
+2025-10-15T18:51:03:    9: <tokio::runtime::blocking::task::BlockingTask<T> as core::future::future::Future>::poll
+2025-10-15T18:51:03:   10: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:51:03:   11: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:51:03:   12: tokio::runtime::blocking::pool::Inner::run
+2025-10-15T18:51:03:   13: std::sys::backtrace::__rust_begin_short_backtrace
+2025-10-15T18:51:03:   14: core::ops::function::FnOnce::call_once{{vtable.shim}}
+2025-10-15T18:51:03:   15: std::sys::pal::unix::thread::Thread::new::thread_start
+2025-10-15T18:51:03:   16: <unknown>
+2025-10-15T18:51:03:   17: <unknown>
+2025-10-15T18:51:08: warning: unused import: `time::timestamp_to_iso`
+2025-10-15T18:51:08:  --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:3:52
+2025-10-15T18:51:08:   |
+2025-10-15T18:51:08: 3 |     utils::{additional_headers::AdditionalHeaders, time::timestamp_to_iso},
+2025-10-15T18:51:08:   |                                                    ^^^^^^^^^^^^^^^^^^^^^^
+2025-10-15T18:51:08:   |
+2025-10-15T18:51:08:   = note: `#[warn(unused_imports)]` on by default
+2025-10-15T18:51:08: 
+2025-10-15T18:51:08: warning: unused imports: `SampleRate` and `sample`
+2025-10-15T18:51:08:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:15:14
+2025-10-15T18:51:08:    |
+2025-10-15T18:51:08: 15 | use sample::{sample, SampleRate};
+2025-10-15T18:51:08:    |              ^^^^^^  ^^^^^^^^^^
+2025-10-15T18:51:08: 
+2025-10-15T18:51:08: warning: unused variable: `duration_in_secs`
+2025-10-15T18:51:08:    --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:447:29
+2025-10-15T18:51:08:     |
+2025-10-15T18:51:08: 447 |                         let duration_in_secs = grpc_channel_recv_latency.elapsed().as_secs_f64();
+2025-10-15T18:51:08:     |                             ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration_in_secs`
+2025-10-15T18:51:08:     |
+2025-10-15T18:51:08:     = note: `#[warn(unused_variables)]` on by default
+2025-10-15T18:51:08: 
+2025-10-15T18:51:08: warning: `aptos-indexer-transaction-stream` (lib) generated 3 warnings (run `cargo fix --lib -p aptos-indexer-transaction-stream` to apply 2 suggestions)
+2025-10-15T18:51:08: warning: hiding a lifetime that's elided elsewhere is confusing
+2025-10-15T18:51:08:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/sdk/src/postgres/utils/database.rs:47:39
+2025-10-15T18:51:08:    |
+2025-10-15T18:51:08: 47 | fn establish_connection(database_url: &str) -> BoxFuture<ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:51:08:    |                                       ^^^^     ---------------------------------------------- the same lifetime is hidden here
+2025-10-15T18:51:08:    |                                       |
+2025-10-15T18:51:08:    |                                       the lifetime is elided here
+2025-10-15T18:51:08:    |
+2025-10-15T18:51:08:    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+2025-10-15T18:51:08:    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+2025-10-15T18:51:08: help: use `'_` for type paths
+2025-10-15T18:51:08:    |
+2025-10-15T18:51:08: 47 | fn establish_connection(database_url: &str) -> BoxFuture<'_, ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:51:08:    |                                                          +++
+2025-10-15T18:51:08: 
+2025-10-15T18:51:08: warning: `aptos-indexer-processor-sdk` (lib) generated 1 warning
+2025-10-15T18:51:08:     Finished `release` profile [optimized] target(s) in 0.70s
+2025-10-15T18:51:08:      Running `/home/sudo/sudo-protocol-indexer/examples/target/release/postgres-basic-events-example --config-path config.yaml`
+2025-10-15T18:51:08: Error: Chain ID Check Error: Wrong chain id detected! Trying to index chain 207 now but existing data is for chain 206
+2025-10-15T18:51:08: 
+2025-10-15T18:51:08: Stack backtrace:
+2025-10-15T18:51:08:    0: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from
+2025-10-15T18:51:08:    1: aptos_indexer_processor_sdk::postgres::basic_processor::basic_processor_function::process::{{closure}}::{{closure}}
+2025-10-15T18:51:08:    2: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:51:08:    3: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:51:08:    4: tokio::runtime::scheduler::multi_thread::worker::Context::run_task
+2025-10-15T18:51:08:    5: tokio::runtime::scheduler::multi_thread::worker::Context::run
+2025-10-15T18:51:08:    6: std::thread::local::LocalKey<T>::with
+2025-10-15T18:51:08:    7: tokio::runtime::context::runtime::enter_runtime
+2025-10-15T18:51:08:    8: tokio::runtime::scheduler::multi_thread::worker::run
+2025-10-15T18:51:08:    9: <tokio::runtime::blocking::task::BlockingTask<T> as core::future::future::Future>::poll
+2025-10-15T18:51:08:   10: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:51:08:   11: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:51:08:   12: tokio::runtime::blocking::pool::Inner::run
+2025-10-15T18:51:08:   13: std::sys::backtrace::__rust_begin_short_backtrace
+2025-10-15T18:51:08:   14: core::ops::function::FnOnce::call_once{{vtable.shim}}
+2025-10-15T18:51:08:   15: std::sys::pal::unix::thread::Thread::new::thread_start
+2025-10-15T18:51:08:   16: <unknown>
+2025-10-15T18:51:08:   17: <unknown>
+2025-10-15T18:51:13: warning: unused import: `time::timestamp_to_iso`
+2025-10-15T18:51:13:  --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:3:52
+2025-10-15T18:51:13:   |
+2025-10-15T18:51:13: 3 |     utils::{additional_headers::AdditionalHeaders, time::timestamp_to_iso},
+2025-10-15T18:51:13:   |                                                    ^^^^^^^^^^^^^^^^^^^^^^
+2025-10-15T18:51:13:   |
+2025-10-15T18:51:13:   = note: `#[warn(unused_imports)]` on by default
+2025-10-15T18:51:13: 
+2025-10-15T18:51:13: warning: unused imports: `SampleRate` and `sample`
+2025-10-15T18:51:13:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:15:14
+2025-10-15T18:51:13:    |
+2025-10-15T18:51:13: 15 | use sample::{sample, SampleRate};
+2025-10-15T18:51:13:    |              ^^^^^^  ^^^^^^^^^^
+2025-10-15T18:51:13: 
+2025-10-15T18:51:13: warning: unused variable: `duration_in_secs`
+2025-10-15T18:51:13:    --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:447:29
+2025-10-15T18:51:13:     |
+2025-10-15T18:51:13: 447 |                         let duration_in_secs = grpc_channel_recv_latency.elapsed().as_secs_f64();
+2025-10-15T18:51:13:     |                             ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration_in_secs`
+2025-10-15T18:51:13:     |
+2025-10-15T18:51:13:     = note: `#[warn(unused_variables)]` on by default
+2025-10-15T18:51:13: 
+2025-10-15T18:51:13: warning: `aptos-indexer-transaction-stream` (lib) generated 3 warnings (run `cargo fix --lib -p aptos-indexer-transaction-stream` to apply 2 suggestions)
+2025-10-15T18:51:13: warning: hiding a lifetime that's elided elsewhere is confusing
+2025-10-15T18:51:13:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/sdk/src/postgres/utils/database.rs:47:39
+2025-10-15T18:51:13:    |
+2025-10-15T18:51:13: 47 | fn establish_connection(database_url: &str) -> BoxFuture<ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:51:13:    |                                       ^^^^     ---------------------------------------------- the same lifetime is hidden here
+2025-10-15T18:51:13:    |                                       |
+2025-10-15T18:51:13:    |                                       the lifetime is elided here
+2025-10-15T18:51:13:    |
+2025-10-15T18:51:13:    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+2025-10-15T18:51:13:    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+2025-10-15T18:51:13: help: use `'_` for type paths
+2025-10-15T18:51:13:    |
+2025-10-15T18:51:13: 47 | fn establish_connection(database_url: &str) -> BoxFuture<'_, ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:51:13:    |                                                          +++
+2025-10-15T18:51:13: 
+2025-10-15T18:51:13: warning: `aptos-indexer-processor-sdk` (lib) generated 1 warning
+2025-10-15T18:51:13:     Finished `release` profile [optimized] target(s) in 0.65s
+2025-10-15T18:51:13:      Running `/home/sudo/sudo-protocol-indexer/examples/target/release/postgres-basic-events-example --config-path config.yaml`
+2025-10-15T18:51:13: Error: Chain ID Check Error: Wrong chain id detected! Trying to index chain 207 now but existing data is for chain 206
+2025-10-15T18:51:13: 
+2025-10-15T18:51:13: Stack backtrace:
+2025-10-15T18:51:13:    0: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from
+2025-10-15T18:51:13:    1: aptos_indexer_processor_sdk::postgres::basic_processor::basic_processor_function::process::{{closure}}::{{closure}}
+2025-10-15T18:51:13:    2: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:51:13:    3: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:51:13:    4: tokio::runtime::scheduler::multi_thread::worker::Context::run_task
+2025-10-15T18:51:13:    5: tokio::runtime::scheduler::multi_thread::worker::Context::run
+2025-10-15T18:51:13:    6: std::thread::local::LocalKey<T>::with
+2025-10-15T18:51:13:    7: tokio::runtime::context::runtime::enter_runtime
+2025-10-15T18:51:13:    8: tokio::runtime::scheduler::multi_thread::worker::run
+2025-10-15T18:51:13:    9: <tokio::runtime::blocking::task::BlockingTask<T> as core::future::future::Future>::poll
+2025-10-15T18:51:13:   10: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:51:13:   11: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:51:13:   12: tokio::runtime::blocking::pool::Inner::run
+2025-10-15T18:51:13:   13: std::sys::backtrace::__rust_begin_short_backtrace
+2025-10-15T18:51:13:   14: core::ops::function::FnOnce::call_once{{vtable.shim}}
+2025-10-15T18:51:13:   15: std::sys::pal::unix::thread::Thread::new::thread_start
+2025-10-15T18:51:13:   16: <unknown>
+2025-10-15T18:51:13:   17: <unknown>
+2025-10-15T18:51:19: warning: unused import: `time::timestamp_to_iso`
+2025-10-15T18:51:19:  --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:3:52
+2025-10-15T18:51:19:   |
+2025-10-15T18:51:19: 3 |     utils::{additional_headers::AdditionalHeaders, time::timestamp_to_iso},
+2025-10-15T18:51:19:   |                                                    ^^^^^^^^^^^^^^^^^^^^^^
+2025-10-15T18:51:19:   |
+2025-10-15T18:51:19:   = note: `#[warn(unused_imports)]` on by default
+2025-10-15T18:51:19: 
+2025-10-15T18:51:19: warning: unused imports: `SampleRate` and `sample`
+2025-10-15T18:51:19:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:15:14
+2025-10-15T18:51:19:    |
+2025-10-15T18:51:19: 15 | use sample::{sample, SampleRate};
+2025-10-15T18:51:19:    |              ^^^^^^  ^^^^^^^^^^
+2025-10-15T18:51:19: 
+2025-10-15T18:51:19: warning: unused variable: `duration_in_secs`
+2025-10-15T18:51:19:    --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:447:29
+2025-10-15T18:51:19:     |
+2025-10-15T18:51:19: 447 |                         let duration_in_secs = grpc_channel_recv_latency.elapsed().as_secs_f64();
+2025-10-15T18:51:19:     |                             ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration_in_secs`
+2025-10-15T18:51:19:     |
+2025-10-15T18:51:19:     = note: `#[warn(unused_variables)]` on by default
+2025-10-15T18:51:19: 
+2025-10-15T18:51:19: warning: `aptos-indexer-transaction-stream` (lib) generated 3 warnings (run `cargo fix --lib -p aptos-indexer-transaction-stream` to apply 2 suggestions)
+2025-10-15T18:51:19: warning: hiding a lifetime that's elided elsewhere is confusing
+2025-10-15T18:51:19:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/sdk/src/postgres/utils/database.rs:47:39
+2025-10-15T18:51:19:    |
+2025-10-15T18:51:19: 47 | fn establish_connection(database_url: &str) -> BoxFuture<ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:51:19:    |                                       ^^^^     ---------------------------------------------- the same lifetime is hidden here
+2025-10-15T18:51:19:    |                                       |
+2025-10-15T18:51:19:    |                                       the lifetime is elided here
+2025-10-15T18:51:19:    |
+2025-10-15T18:51:19:    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+2025-10-15T18:51:19:    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+2025-10-15T18:51:19: help: use `'_` for type paths
+2025-10-15T18:51:19:    |
+2025-10-15T18:51:19: 47 | fn establish_connection(database_url: &str) -> BoxFuture<'_, ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:51:19:    |                                                          +++
+2025-10-15T18:51:19: 
+2025-10-15T18:51:19: warning: `aptos-indexer-processor-sdk` (lib) generated 1 warning
+2025-10-15T18:51:19:     Finished `release` profile [optimized] target(s) in 0.75s
+2025-10-15T18:51:19:      Running `/home/sudo/sudo-protocol-indexer/examples/target/release/postgres-basic-events-example --config-path config.yaml`
+2025-10-15T18:51:19: Error: Chain ID Check Error: Wrong chain id detected! Trying to index chain 207 now but existing data is for chain 206
+2025-10-15T18:51:19: 
+2025-10-15T18:51:19: Stack backtrace:
+2025-10-15T18:51:19:    0: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from
+2025-10-15T18:51:19:    1: aptos_indexer_processor_sdk::postgres::basic_processor::basic_processor_function::process::{{closure}}::{{closure}}
+2025-10-15T18:51:19:    2: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:51:19:    3: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:51:19:    4: tokio::runtime::scheduler::multi_thread::worker::Context::run_task
+2025-10-15T18:51:19:    5: tokio::runtime::scheduler::multi_thread::worker::Context::run
+2025-10-15T18:51:19:    6: std::thread::local::LocalKey<T>::with
+2025-10-15T18:51:19:    7: tokio::runtime::context::runtime::enter_runtime
+2025-10-15T18:51:19:    8: tokio::runtime::scheduler::multi_thread::worker::run
+2025-10-15T18:51:19:    9: <tokio::runtime::blocking::task::BlockingTask<T> as core::future::future::Future>::poll
+2025-10-15T18:51:19:   10: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:51:19:   11: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:51:19:   12: tokio::runtime::blocking::pool::Inner::run
+2025-10-15T18:51:19:   13: std::sys::backtrace::__rust_begin_short_backtrace
+2025-10-15T18:51:19:   14: core::ops::function::FnOnce::call_once{{vtable.shim}}
+2025-10-15T18:51:19:   15: std::sys::pal::unix::thread::Thread::new::thread_start
+2025-10-15T18:51:19:   16: <unknown>
+2025-10-15T18:51:19:   17: <unknown>
+2025-10-15T18:51:24: warning: unused import: `time::timestamp_to_iso`
+2025-10-15T18:51:24:  --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:3:52
+2025-10-15T18:51:24:   |
+2025-10-15T18:51:24: 3 |     utils::{additional_headers::AdditionalHeaders, time::timestamp_to_iso},
+2025-10-15T18:51:24:   |                                                    ^^^^^^^^^^^^^^^^^^^^^^
+2025-10-15T18:51:24:   |
+2025-10-15T18:51:24:   = note: `#[warn(unused_imports)]` on by default
+2025-10-15T18:51:24: 
+2025-10-15T18:51:24: warning: unused imports: `SampleRate` and `sample`
+2025-10-15T18:51:24:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:15:14
+2025-10-15T18:51:24:    |
+2025-10-15T18:51:24: 15 | use sample::{sample, SampleRate};
+2025-10-15T18:51:24:    |              ^^^^^^  ^^^^^^^^^^
+2025-10-15T18:51:24: 
+2025-10-15T18:51:24: warning: unused variable: `duration_in_secs`
+2025-10-15T18:51:24:    --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:447:29
+2025-10-15T18:51:24:     |
+2025-10-15T18:51:24: 447 |                         let duration_in_secs = grpc_channel_recv_latency.elapsed().as_secs_f64();
+2025-10-15T18:51:24:     |                             ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration_in_secs`
+2025-10-15T18:51:24:     |
+2025-10-15T18:51:24:     = note: `#[warn(unused_variables)]` on by default
+2025-10-15T18:51:24: 
+2025-10-15T18:51:24: warning: `aptos-indexer-transaction-stream` (lib) generated 3 warnings (run `cargo fix --lib -p aptos-indexer-transaction-stream` to apply 2 suggestions)
+2025-10-15T18:51:24: warning: hiding a lifetime that's elided elsewhere is confusing
+2025-10-15T18:51:24:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/sdk/src/postgres/utils/database.rs:47:39
+2025-10-15T18:51:24:    |
+2025-10-15T18:51:24: 47 | fn establish_connection(database_url: &str) -> BoxFuture<ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:51:24:    |                                       ^^^^     ---------------------------------------------- the same lifetime is hidden here
+2025-10-15T18:51:24:    |                                       |
+2025-10-15T18:51:24:    |                                       the lifetime is elided here
+2025-10-15T18:51:24:    |
+2025-10-15T18:51:24:    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+2025-10-15T18:51:24:    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+2025-10-15T18:51:24: help: use `'_` for type paths
+2025-10-15T18:51:24:    |
+2025-10-15T18:51:24: 47 | fn establish_connection(database_url: &str) -> BoxFuture<'_, ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:51:24:    |                                                          +++
+2025-10-15T18:51:24: 
+2025-10-15T18:51:24: warning: `aptos-indexer-processor-sdk` (lib) generated 1 warning
+2025-10-15T18:51:24:     Finished `release` profile [optimized] target(s) in 0.68s
+2025-10-15T18:51:24:      Running `/home/sudo/sudo-protocol-indexer/examples/target/release/postgres-basic-events-example --config-path config.yaml`
+2025-10-15T18:51:24: Error: Chain ID Check Error: Wrong chain id detected! Trying to index chain 207 now but existing data is for chain 206
+2025-10-15T18:51:24: 
+2025-10-15T18:51:24: Stack backtrace:
+2025-10-15T18:51:24:    0: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from
+2025-10-15T18:51:24:    1: aptos_indexer_processor_sdk::postgres::basic_processor::basic_processor_function::process::{{closure}}::{{closure}}
+2025-10-15T18:51:24:    2: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:51:24:    3: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:51:24:    4: tokio::runtime::scheduler::multi_thread::worker::Context::run_task
+2025-10-15T18:51:24:    5: tokio::runtime::scheduler::multi_thread::worker::Context::run
+2025-10-15T18:51:24:    6: std::thread::local::LocalKey<T>::with
+2025-10-15T18:51:24:    7: tokio::runtime::context::runtime::enter_runtime
+2025-10-15T18:51:24:    8: tokio::runtime::scheduler::multi_thread::worker::run
+2025-10-15T18:51:24:    9: <tokio::runtime::blocking::task::BlockingTask<T> as core::future::future::Future>::poll
+2025-10-15T18:51:24:   10: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:51:24:   11: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:51:24:   12: tokio::runtime::blocking::pool::Inner::run
+2025-10-15T18:51:24:   13: std::sys::backtrace::__rust_begin_short_backtrace
+2025-10-15T18:51:24:   14: core::ops::function::FnOnce::call_once{{vtable.shim}}
+2025-10-15T18:51:24:   15: std::sys::pal::unix::thread::Thread::new::thread_start
+2025-10-15T18:51:24:   16: <unknown>
+2025-10-15T18:51:24:   17: <unknown>
+2025-10-15T18:51:29: warning: unused import: `time::timestamp_to_iso`
+2025-10-15T18:51:29:  --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:3:52
+2025-10-15T18:51:29:   |
+2025-10-15T18:51:29: 3 |     utils::{additional_headers::AdditionalHeaders, time::timestamp_to_iso},
+2025-10-15T18:51:29:   |                                                    ^^^^^^^^^^^^^^^^^^^^^^
+2025-10-15T18:51:29:   |
+2025-10-15T18:51:29:   = note: `#[warn(unused_imports)]` on by default
+2025-10-15T18:51:29: 
+2025-10-15T18:51:29: warning: unused imports: `SampleRate` and `sample`
+2025-10-15T18:51:29:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:15:14
+2025-10-15T18:51:29:    |
+2025-10-15T18:51:29: 15 | use sample::{sample, SampleRate};
+2025-10-15T18:51:29:    |              ^^^^^^  ^^^^^^^^^^
+2025-10-15T18:51:29: 
+2025-10-15T18:51:29: warning: unused variable: `duration_in_secs`
+2025-10-15T18:51:29:    --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:447:29
+2025-10-15T18:51:29:     |
+2025-10-15T18:51:29: 447 |                         let duration_in_secs = grpc_channel_recv_latency.elapsed().as_secs_f64();
+2025-10-15T18:51:29:     |                             ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration_in_secs`
+2025-10-15T18:51:29:     |
+2025-10-15T18:51:29:     = note: `#[warn(unused_variables)]` on by default
+2025-10-15T18:51:29: 
+2025-10-15T18:51:29: warning: `aptos-indexer-transaction-stream` (lib) generated 3 warnings (run `cargo fix --lib -p aptos-indexer-transaction-stream` to apply 2 suggestions)
+2025-10-15T18:51:29: warning: hiding a lifetime that's elided elsewhere is confusing
+2025-10-15T18:51:29:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/sdk/src/postgres/utils/database.rs:47:39
+2025-10-15T18:51:29:    |
+2025-10-15T18:51:29: 47 | fn establish_connection(database_url: &str) -> BoxFuture<ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:51:29:    |                                       ^^^^     ---------------------------------------------- the same lifetime is hidden here
+2025-10-15T18:51:29:    |                                       |
+2025-10-15T18:51:29:    |                                       the lifetime is elided here
+2025-10-15T18:51:29:    |
+2025-10-15T18:51:29:    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+2025-10-15T18:51:29:    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+2025-10-15T18:51:29: help: use `'_` for type paths
+2025-10-15T18:51:29:    |
+2025-10-15T18:51:29: 47 | fn establish_connection(database_url: &str) -> BoxFuture<'_, ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:51:29:    |                                                          +++
+2025-10-15T18:51:29: 
+2025-10-15T18:51:29: warning: `aptos-indexer-processor-sdk` (lib) generated 1 warning
+2025-10-15T18:51:29:     Finished `release` profile [optimized] target(s) in 0.74s
+2025-10-15T18:51:29:      Running `/home/sudo/sudo-protocol-indexer/examples/target/release/postgres-basic-events-example --config-path config.yaml`
+2025-10-15T18:51:29: Error: Chain ID Check Error: Wrong chain id detected! Trying to index chain 207 now but existing data is for chain 206
+2025-10-15T18:51:29: 
+2025-10-15T18:51:29: Stack backtrace:
+2025-10-15T18:51:29:    0: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from
+2025-10-15T18:51:29:    1: aptos_indexer_processor_sdk::postgres::basic_processor::basic_processor_function::process::{{closure}}::{{closure}}
+2025-10-15T18:51:29:    2: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:51:29:    3: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:51:29:    4: tokio::runtime::scheduler::multi_thread::worker::Context::run_task
+2025-10-15T18:51:29:    5: tokio::runtime::scheduler::multi_thread::worker::Context::run
+2025-10-15T18:51:29:    6: std::thread::local::LocalKey<T>::with
+2025-10-15T18:51:29:    7: tokio::runtime::context::runtime::enter_runtime
+2025-10-15T18:51:29:    8: tokio::runtime::scheduler::multi_thread::worker::run
+2025-10-15T18:51:29:    9: <tokio::runtime::blocking::task::BlockingTask<T> as core::future::future::Future>::poll
+2025-10-15T18:51:29:   10: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:51:29:   11: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:51:29:   12: tokio::runtime::blocking::pool::Inner::run
+2025-10-15T18:51:29:   13: std::sys::backtrace::__rust_begin_short_backtrace
+2025-10-15T18:51:29:   14: core::ops::function::FnOnce::call_once{{vtable.shim}}
+2025-10-15T18:51:29:   15: std::sys::pal::unix::thread::Thread::new::thread_start
+2025-10-15T18:51:29:   16: <unknown>
+2025-10-15T18:51:29:   17: <unknown>
+2025-10-15T18:51:35: warning: unused import: `time::timestamp_to_iso`
+2025-10-15T18:51:35:  --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:3:52
+2025-10-15T18:51:35:   |
+2025-10-15T18:51:35: 3 |     utils::{additional_headers::AdditionalHeaders, time::timestamp_to_iso},
+2025-10-15T18:51:35:   |                                                    ^^^^^^^^^^^^^^^^^^^^^^
+2025-10-15T18:51:35:   |
+2025-10-15T18:51:35:   = note: `#[warn(unused_imports)]` on by default
+2025-10-15T18:51:35: 
+2025-10-15T18:51:35: warning: unused imports: `SampleRate` and `sample`
+2025-10-15T18:51:35:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:15:14
+2025-10-15T18:51:35:    |
+2025-10-15T18:51:35: 15 | use sample::{sample, SampleRate};
+2025-10-15T18:51:35:    |              ^^^^^^  ^^^^^^^^^^
+2025-10-15T18:51:35: 
+2025-10-15T18:51:35: warning: unused variable: `duration_in_secs`
+2025-10-15T18:51:35:    --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:447:29
+2025-10-15T18:51:35:     |
+2025-10-15T18:51:35: 447 |                         let duration_in_secs = grpc_channel_recv_latency.elapsed().as_secs_f64();
+2025-10-15T18:51:35:     |                             ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration_in_secs`
+2025-10-15T18:51:35:     |
+2025-10-15T18:51:35:     = note: `#[warn(unused_variables)]` on by default
+2025-10-15T18:51:35: 
+2025-10-15T18:51:35: warning: `aptos-indexer-transaction-stream` (lib) generated 3 warnings (run `cargo fix --lib -p aptos-indexer-transaction-stream` to apply 2 suggestions)
+2025-10-15T18:51:35: warning: hiding a lifetime that's elided elsewhere is confusing
+2025-10-15T18:51:35:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/sdk/src/postgres/utils/database.rs:47:39
+2025-10-15T18:51:35:    |
+2025-10-15T18:51:35: 47 | fn establish_connection(database_url: &str) -> BoxFuture<ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:51:35:    |                                       ^^^^     ---------------------------------------------- the same lifetime is hidden here
+2025-10-15T18:51:35:    |                                       |
+2025-10-15T18:51:35:    |                                       the lifetime is elided here
+2025-10-15T18:51:35:    |
+2025-10-15T18:51:35:    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+2025-10-15T18:51:35:    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+2025-10-15T18:51:35: help: use `'_` for type paths
+2025-10-15T18:51:35:    |
+2025-10-15T18:51:35: 47 | fn establish_connection(database_url: &str) -> BoxFuture<'_, ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:51:35:    |                                                          +++
+2025-10-15T18:51:35: 
+2025-10-15T18:51:35: warning: `aptos-indexer-processor-sdk` (lib) generated 1 warning
+2025-10-15T18:51:35:     Finished `release` profile [optimized] target(s) in 0.76s
+2025-10-15T18:51:35:      Running `/home/sudo/sudo-protocol-indexer/examples/target/release/postgres-basic-events-example --config-path config.yaml`
+2025-10-15T18:51:35: Error: Chain ID Check Error: Wrong chain id detected! Trying to index chain 207 now but existing data is for chain 206
+2025-10-15T18:51:35: 
+2025-10-15T18:51:35: 
+2025-10-15T18:51:35: Stack backtrace:
+2025-10-15T18:51:35:    0: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from
+2025-10-15T18:51:35:    1: aptos_indexer_processor_sdk::postgres::basic_processor::basic_processor_function::process::{{closure}}::{{closure}}
+2025-10-15T18:51:35:    2: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:51:35:    3: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:51:35:    4: tokio::runtime::scheduler::multi_thread::worker::Context::run_task
+2025-10-15T18:51:35:    5: tokio::runtime::scheduler::multi_thread::worker::Context::run
+2025-10-15T18:51:35:    6: std::thread::local::LocalKey<T>::with
+2025-10-15T18:51:35:    7: tokio::runtime::context::runtime::enter_runtime
+2025-10-15T18:51:35:    8: tokio::runtime::scheduler::multi_thread::worker::run
+2025-10-15T18:51:35:    9: <tokio::runtime::blocking::task::BlockingTask<T> as core::future::future::Future>::poll
+2025-10-15T18:51:35:   10: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:51:35:   11: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:51:35:   12: tokio::runtime::blocking::pool::Inner::run
+2025-10-15T18:51:35:   13: std::sys::backtrace::__rust_begin_short_backtrace
+2025-10-15T18:51:35:   14: core::ops::function::FnOnce::call_once{{vtable.shim}}
+2025-10-15T18:51:35:   15: std::sys::pal::unix::thread::Thread::new::thread_start
+2025-10-15T18:51:35:   16: <unknown>
+2025-10-15T18:51:35:   17: <unknown>
+2025-10-15T18:51:40: warning: unused import: `time::timestamp_to_iso`
+2025-10-15T18:51:40:  --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:3:52
+2025-10-15T18:51:40:   |
+2025-10-15T18:51:40: 3 |     utils::{additional_headers::AdditionalHeaders, time::timestamp_to_iso},
+2025-10-15T18:51:40:   |                                                    ^^^^^^^^^^^^^^^^^^^^^^
+2025-10-15T18:51:40:   |
+2025-10-15T18:51:40:   = note: `#[warn(unused_imports)]` on by default
+2025-10-15T18:51:40: 
+2025-10-15T18:51:40: warning: unused imports: `SampleRate` and `sample`
+2025-10-15T18:51:40:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:15:14
+2025-10-15T18:51:40:    |
+2025-10-15T18:51:40: 15 | use sample::{sample, SampleRate};
+2025-10-15T18:51:40:    |              ^^^^^^  ^^^^^^^^^^
+2025-10-15T18:51:40: 
+2025-10-15T18:51:40: warning: unused variable: `duration_in_secs`
+2025-10-15T18:51:40:    --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:447:29
+2025-10-15T18:51:40:     |
+2025-10-15T18:51:40: 447 |                         let duration_in_secs = grpc_channel_recv_latency.elapsed().as_secs_f64();
+2025-10-15T18:51:40:     |                             ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration_in_secs`
+2025-10-15T18:51:40:     |
+2025-10-15T18:51:40:     = note: `#[warn(unused_variables)]` on by default
+2025-10-15T18:51:40: 
+2025-10-15T18:51:40: warning: `aptos-indexer-transaction-stream` (lib) generated 3 warnings (run `cargo fix --lib -p aptos-indexer-transaction-stream` to apply 2 suggestions)
+2025-10-15T18:51:40: warning: hiding a lifetime that's elided elsewhere is confusing
+2025-10-15T18:51:40:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/sdk/src/postgres/utils/database.rs:47:39
+2025-10-15T18:51:40:    |
+2025-10-15T18:51:40: 47 | fn establish_connection(database_url: &str) -> BoxFuture<ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:51:40:    |                                       ^^^^     ---------------------------------------------- the same lifetime is hidden here
+2025-10-15T18:51:40:    |                                       |
+2025-10-15T18:51:40:    |                                       the lifetime is elided here
+2025-10-15T18:51:40:    |
+2025-10-15T18:51:40:    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+2025-10-15T18:51:40:    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+2025-10-15T18:51:40: help: use `'_` for type paths
+2025-10-15T18:51:40:    |
+2025-10-15T18:51:40: 47 | fn establish_connection(database_url: &str) -> BoxFuture<'_, ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:51:40:    |                                                          +++
+2025-10-15T18:51:40: 
+2025-10-15T18:51:40: warning: `aptos-indexer-processor-sdk` (lib) generated 1 warning
+2025-10-15T18:51:40:     Finished `release` profile [optimized] target(s) in 0.71s
+2025-10-15T18:51:40:      Running `/home/sudo/sudo-protocol-indexer/examples/target/release/postgres-basic-events-example --config-path config.yaml`
+2025-10-15T18:51:40: Error: Chain ID Check Error: Wrong chain id detected! Trying to index chain 207 now but existing data is for chain 206
+2025-10-15T18:51:40: 
+2025-10-15T18:51:40: Stack backtrace:
+2025-10-15T18:51:40:    0: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from
+2025-10-15T18:51:40:    1: aptos_indexer_processor_sdk::postgres::basic_processor::basic_processor_function::process::{{closure}}::{{closure}}
+2025-10-15T18:51:40:    2: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:51:40:    3: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:51:40:    4: tokio::runtime::scheduler::multi_thread::worker::Context::run_task
+2025-10-15T18:51:40:    5: tokio::runtime::scheduler::multi_thread::worker::Context::run
+2025-10-15T18:51:40:    6: std::thread::local::LocalKey<T>::with
+2025-10-15T18:51:40:    7: tokio::runtime::context::runtime::enter_runtime
+2025-10-15T18:51:40:    8: tokio::runtime::scheduler::multi_thread::worker::run
+2025-10-15T18:51:40:    9: <tokio::runtime::blocking::task::BlockingTask<T> as core::future::future::Future>::poll
+2025-10-15T18:51:40:   10: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:51:40:   11: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:51:40:   12: tokio::runtime::blocking::pool::Inner::run
+2025-10-15T18:51:40:   13: std::sys::backtrace::__rust_begin_short_backtrace
+2025-10-15T18:51:40:   14: core::ops::function::FnOnce::call_once{{vtable.shim}}
+2025-10-15T18:51:40:   15: std::sys::pal::unix::thread::Thread::new::thread_start
+2025-10-15T18:51:40:   16: <unknown>
+2025-10-15T18:51:40:   17: <unknown>
+2025-10-15T18:51:46: warning: unused import: `time::timestamp_to_iso`
+2025-10-15T18:51:46:  --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:3:52
+2025-10-15T18:51:46:   |
+2025-10-15T18:51:46: 3 |     utils::{additional_headers::AdditionalHeaders, time::timestamp_to_iso},
+2025-10-15T18:51:46:   |                                                    ^^^^^^^^^^^^^^^^^^^^^^
+2025-10-15T18:51:46:   |
+2025-10-15T18:51:46:   = note: `#[warn(unused_imports)]` on by default
+2025-10-15T18:51:46: 
+2025-10-15T18:51:46: warning: unused imports: `SampleRate` and `sample`
+2025-10-15T18:51:46:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:15:14
+2025-10-15T18:51:46:    |
+2025-10-15T18:51:46: 15 | use sample::{sample, SampleRate};
+2025-10-15T18:51:46:    |              ^^^^^^  ^^^^^^^^^^
+2025-10-15T18:51:46: 
+2025-10-15T18:51:46: warning: unused variable: `duration_in_secs`
+2025-10-15T18:51:46:    --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:447:29
+2025-10-15T18:51:46:     |
+2025-10-15T18:51:46: 447 |                         let duration_in_secs = grpc_channel_recv_latency.elapsed().as_secs_f64();
+2025-10-15T18:51:46:     |                             ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration_in_secs`
+2025-10-15T18:51:46:     |
+2025-10-15T18:51:46:     = note: `#[warn(unused_variables)]` on by default
+2025-10-15T18:51:46: 
+2025-10-15T18:51:46: warning: `aptos-indexer-transaction-stream` (lib) generated 3 warnings (run `cargo fix --lib -p aptos-indexer-transaction-stream` to apply 2 suggestions)
+2025-10-15T18:51:46: warning: hiding a lifetime that's elided elsewhere is confusing
+2025-10-15T18:51:46:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/sdk/src/postgres/utils/database.rs:47:39
+2025-10-15T18:51:46:    |
+2025-10-15T18:51:46: 47 | fn establish_connection(database_url: &str) -> BoxFuture<ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:51:46:    |                                       ^^^^     ---------------------------------------------- the same lifetime is hidden here
+2025-10-15T18:51:46:    |                                       |
+2025-10-15T18:51:46:    |                                       the lifetime is elided here
+2025-10-15T18:51:46:    |
+2025-10-15T18:51:46:    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+2025-10-15T18:51:46:    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+2025-10-15T18:51:46: help: use `'_` for type paths
+2025-10-15T18:51:46:    |
+2025-10-15T18:51:46: 47 | fn establish_connection(database_url: &str) -> BoxFuture<'_, ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:51:46:    |                                                          +++
+2025-10-15T18:51:46: 
+2025-10-15T18:51:46: warning: `aptos-indexer-processor-sdk` (lib) generated 1 warning
+2025-10-15T18:51:46:     Finished `release` profile [optimized] target(s) in 0.74s
+2025-10-15T18:51:46:      Running `/home/sudo/sudo-protocol-indexer/examples/target/release/postgres-basic-events-example --config-path config.yaml`
+2025-10-15T18:51:46: Error: Chain ID Check Error: Wrong chain id detected! Trying to index chain 207 now but existing data is for chain 206
+2025-10-15T18:51:46: 
+2025-10-15T18:51:46: Stack backtrace:
+2025-10-15T18:51:46:    0: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from
+2025-10-15T18:51:46:    1: aptos_indexer_processor_sdk::postgres::basic_processor::basic_processor_function::process::{{closure}}::{{closure}}
+2025-10-15T18:51:46:    2: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:51:46:    3: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:51:46:    4: tokio::runtime::scheduler::multi_thread::worker::Context::run_task
+2025-10-15T18:51:46:    5: tokio::runtime::scheduler::multi_thread::worker::Context::run
+2025-10-15T18:51:46:    6: std::thread::local::LocalKey<T>::with
+2025-10-15T18:51:46:    7: tokio::runtime::context::runtime::enter_runtime
+2025-10-15T18:51:46:    8: tokio::runtime::scheduler::multi_thread::worker::run
+2025-10-15T18:51:46:    9: <tokio::runtime::blocking::task::BlockingTask<T> as core::future::future::Future>::poll
+2025-10-15T18:51:46:   10: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:51:46:   11: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:51:46:   12: tokio::runtime::blocking::pool::Inner::run
+2025-10-15T18:51:46:   13: std::sys::backtrace::__rust_begin_short_backtrace
+2025-10-15T18:51:46:   14: core::ops::function::FnOnce::call_once{{vtable.shim}}
+2025-10-15T18:51:46:   15: std::sys::pal::unix::thread::Thread::new::thread_start
+2025-10-15T18:51:46:   16: <unknown>
+2025-10-15T18:51:46:   17: <unknown>
+2025-10-15T18:51:51: warning: unused import: `time::timestamp_to_iso`
+2025-10-15T18:51:51:  --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:3:52
+2025-10-15T18:51:51:   |
+2025-10-15T18:51:51: 3 |     utils::{additional_headers::AdditionalHeaders, time::timestamp_to_iso},
+2025-10-15T18:51:51:   |                                                    ^^^^^^^^^^^^^^^^^^^^^^
+2025-10-15T18:51:51:   |
+2025-10-15T18:51:51:   = note: `#[warn(unused_imports)]` on by default
+2025-10-15T18:51:51: 
+2025-10-15T18:51:51: warning: unused imports: `SampleRate` and `sample`
+2025-10-15T18:51:51:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:15:14
+2025-10-15T18:51:51:    |
+2025-10-15T18:51:51: 15 | use sample::{sample, SampleRate};
+2025-10-15T18:51:51:    |              ^^^^^^  ^^^^^^^^^^
+2025-10-15T18:51:51: 
+2025-10-15T18:51:51: warning: unused variable: `duration_in_secs`
+2025-10-15T18:51:51:    --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:447:29
+2025-10-15T18:51:51:     |
+2025-10-15T18:51:51: 447 |                         let duration_in_secs = grpc_channel_recv_latency.elapsed().as_secs_f64();
+2025-10-15T18:51:51:     |                             ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration_in_secs`
+2025-10-15T18:51:51:     |
+2025-10-15T18:51:51:     = note: `#[warn(unused_variables)]` on by default
+2025-10-15T18:51:51: 
+2025-10-15T18:51:51: warning: `aptos-indexer-transaction-stream` (lib) generated 3 warnings (run `cargo fix --lib -p aptos-indexer-transaction-stream` to apply 2 suggestions)
+2025-10-15T18:51:51: warning: hiding a lifetime that's elided elsewhere is confusing
+2025-10-15T18:51:51:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/sdk/src/postgres/utils/database.rs:47:39
+2025-10-15T18:51:51:    |
+2025-10-15T18:51:51: 47 | fn establish_connection(database_url: &str) -> BoxFuture<ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:51:51:    |                                       ^^^^     ---------------------------------------------- the same lifetime is hidden here
+2025-10-15T18:51:51:    |                                       |
+2025-10-15T18:51:51:    |                                       the lifetime is elided here
+2025-10-15T18:51:51:    |
+2025-10-15T18:51:51:    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+2025-10-15T18:51:51:    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+2025-10-15T18:51:51: help: use `'_` for type paths
+2025-10-15T18:51:51:    |
+2025-10-15T18:51:51: 47 | fn establish_connection(database_url: &str) -> BoxFuture<'_, ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:51:51:    |                                                          +++
+2025-10-15T18:51:51: 
+2025-10-15T18:51:51: warning: `aptos-indexer-processor-sdk` (lib) generated 1 warning
+2025-10-15T18:51:51:     Finished `release` profile [optimized] target(s) in 0.74s
+2025-10-15T18:51:51:      Running `/home/sudo/sudo-protocol-indexer/examples/target/release/postgres-basic-events-example --config-path config.yaml`
+2025-10-15T18:51:51: Error: Chain ID Check Error: Wrong chain id detected! Trying to index chain 207 now but existing data is for chain 206
+2025-10-15T18:51:51: 
+2025-10-15T18:51:51: Stack backtrace:
+2025-10-15T18:51:51:    0: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from
+2025-10-15T18:51:51:    1: aptos_indexer_processor_sdk::postgres::basic_processor::basic_processor_function::process::{{closure}}::{{closure}}
+2025-10-15T18:51:51:    2: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:51:51:    3: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:51:51:    4: tokio::runtime::scheduler::multi_thread::worker::Context::run_task
+2025-10-15T18:51:51:    5: tokio::runtime::scheduler::multi_thread::worker::Context::run
+2025-10-15T18:51:51:    6: std::thread::local::LocalKey<T>::with
+2025-10-15T18:51:51:    7: tokio::runtime::context::runtime::enter_runtime
+2025-10-15T18:51:51:    8: tokio::runtime::scheduler::multi_thread::worker::run
+2025-10-15T18:51:51:    9: <tokio::runtime::blocking::task::BlockingTask<T> as core::future::future::Future>::poll
+2025-10-15T18:51:51:   10: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:51:51:   11: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:51:51:   12: tokio::runtime::blocking::pool::Inner::run
+2025-10-15T18:51:51:   13: std::sys::backtrace::__rust_begin_short_backtrace
+2025-10-15T18:51:51:   14: core::ops::function::FnOnce::call_once{{vtable.shim}}
+2025-10-15T18:51:51:   15: std::sys::pal::unix::thread::Thread::new::thread_start
+2025-10-15T18:51:51:   16: <unknown>
+2025-10-15T18:51:51:   17: <unknown>
+2025-10-15T18:51:56: warning: unused import: `time::timestamp_to_iso`
+2025-10-15T18:51:56:  --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:3:52
+2025-10-15T18:51:56:   |
+2025-10-15T18:51:56: 3 |     utils::{additional_headers::AdditionalHeaders, time::timestamp_to_iso},
+2025-10-15T18:51:56:   |                                                    ^^^^^^^^^^^^^^^^^^^^^^
+2025-10-15T18:51:56:   |
+2025-10-15T18:51:56:   = note: `#[warn(unused_imports)]` on by default
+2025-10-15T18:51:56: 
+2025-10-15T18:51:56: warning: unused imports: `SampleRate` and `sample`
+2025-10-15T18:51:56:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:15:14
+2025-10-15T18:51:56:    |
+2025-10-15T18:51:56: 15 | use sample::{sample, SampleRate};
+2025-10-15T18:51:56:    |              ^^^^^^  ^^^^^^^^^^
+2025-10-15T18:51:56: 
+2025-10-15T18:51:56: warning: unused variable: `duration_in_secs`
+2025-10-15T18:51:56:    --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:447:29
+2025-10-15T18:51:56:     |
+2025-10-15T18:51:56: 447 |                         let duration_in_secs = grpc_channel_recv_latency.elapsed().as_secs_f64();
+2025-10-15T18:51:56:     |                             ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration_in_secs`
+2025-10-15T18:51:56:     |
+2025-10-15T18:51:56:     = note: `#[warn(unused_variables)]` on by default
+2025-10-15T18:51:56: 
+2025-10-15T18:51:56: warning: `aptos-indexer-transaction-stream` (lib) generated 3 warnings (run `cargo fix --lib -p aptos-indexer-transaction-stream` to apply 2 suggestions)
+2025-10-15T18:51:56: warning: hiding a lifetime that's elided elsewhere is confusing
+2025-10-15T18:51:56:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/sdk/src/postgres/utils/database.rs:47:39
+2025-10-15T18:51:56:    |
+2025-10-15T18:51:56: 47 | fn establish_connection(database_url: &str) -> BoxFuture<ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:51:56:    |                                       ^^^^     ---------------------------------------------- the same lifetime is hidden here
+2025-10-15T18:51:56:    |                                       |
+2025-10-15T18:51:56:    |                                       the lifetime is elided here
+2025-10-15T18:51:56:    |
+2025-10-15T18:51:56:    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+2025-10-15T18:51:56:    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+2025-10-15T18:51:56: help: use `'_` for type paths
+2025-10-15T18:51:56:    |
+2025-10-15T18:51:56: 47 | fn establish_connection(database_url: &str) -> BoxFuture<'_, ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:51:56:    |                                                          +++
+2025-10-15T18:51:56: 
+2025-10-15T18:51:56: warning: `aptos-indexer-processor-sdk` (lib) generated 1 warning
+2025-10-15T18:51:56:     Finished `release` profile [optimized] target(s) in 0.76s
+2025-10-15T18:51:56:      Running `/home/sudo/sudo-protocol-indexer/examples/target/release/postgres-basic-events-example --config-path config.yaml`
+2025-10-15T18:51:56: Error: Chain ID Check Error: Wrong chain id detected! Trying to index chain 207 now but existing data is for chain 206
+2025-10-15T18:51:56: 
+2025-10-15T18:51:56: Stack backtrace:
+2025-10-15T18:51:56:    0: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from
+2025-10-15T18:51:56:    1: aptos_indexer_processor_sdk::postgres::basic_processor::basic_processor_function::process::{{closure}}::{{closure}}
+2025-10-15T18:51:56:    2: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:51:56:    3: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:51:56:    4: tokio::runtime::scheduler::multi_thread::worker::Context::run_task
+2025-10-15T18:51:56:    5: tokio::runtime::scheduler::multi_thread::worker::Context::run
+2025-10-15T18:51:56:    6: std::thread::local::LocalKey<T>::with
+2025-10-15T18:51:56:    7: tokio::runtime::context::runtime::enter_runtime
+2025-10-15T18:51:56:    8: tokio::runtime::scheduler::multi_thread::worker::run
+2025-10-15T18:51:56:    9: <tokio::runtime::blocking::task::BlockingTask<T> as core::future::future::Future>::poll
+2025-10-15T18:51:56:   10: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:51:56:   11: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:51:56:   12: tokio::runtime::blocking::pool::Inner::run
+2025-10-15T18:51:56:   13: std::sys::backtrace::__rust_begin_short_backtrace
+2025-10-15T18:51:56:   14: core::ops::function::FnOnce::call_once{{vtable.shim}}
+2025-10-15T18:51:56:   15: std::sys::pal::unix::thread::Thread::new::thread_start
+2025-10-15T18:51:56:   16: <unknown>
+2025-10-15T18:51:56:   17: <unknown>
+2025-10-15T18:52:02: warning: unused import: `time::timestamp_to_iso`
+2025-10-15T18:52:02:  --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:3:52
+2025-10-15T18:52:02:   |
+2025-10-15T18:52:02: 3 |     utils::{additional_headers::AdditionalHeaders, time::timestamp_to_iso},
+2025-10-15T18:52:02:   |                                                    ^^^^^^^^^^^^^^^^^^^^^^
+2025-10-15T18:52:02:   |
+2025-10-15T18:52:02:   = note: `#[warn(unused_imports)]` on by default
+2025-10-15T18:52:02: 
+2025-10-15T18:52:02: warning: unused imports: `SampleRate` and `sample`
+2025-10-15T18:52:02:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:15:14
+2025-10-15T18:52:02:    |
+2025-10-15T18:52:02: 15 | use sample::{sample, SampleRate};
+2025-10-15T18:52:02:    |              ^^^^^^  ^^^^^^^^^^
+2025-10-15T18:52:02: 
+2025-10-15T18:52:02: warning: unused variable: `duration_in_secs`
+2025-10-15T18:52:02:    --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:447:29
+2025-10-15T18:52:02:     |
+2025-10-15T18:52:02: 447 |                         let duration_in_secs = grpc_channel_recv_latency.elapsed().as_secs_f64();
+2025-10-15T18:52:02:     |                             ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration_in_secs`
+2025-10-15T18:52:02:     |
+2025-10-15T18:52:02:     = note: `#[warn(unused_variables)]` on by default
+2025-10-15T18:52:02: 
+2025-10-15T18:52:02: warning: `aptos-indexer-transaction-stream` (lib) generated 3 warnings (run `cargo fix --lib -p aptos-indexer-transaction-stream` to apply 2 suggestions)
+2025-10-15T18:52:02: warning: hiding a lifetime that's elided elsewhere is confusing
+2025-10-15T18:52:02:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/sdk/src/postgres/utils/database.rs:47:39
+2025-10-15T18:52:02:    |
+2025-10-15T18:52:02: 47 | fn establish_connection(database_url: &str) -> BoxFuture<ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:52:02:    |                                       ^^^^     ---------------------------------------------- the same lifetime is hidden here
+2025-10-15T18:52:02:    |                                       |
+2025-10-15T18:52:02:    |                                       the lifetime is elided here
+2025-10-15T18:52:02:    |
+2025-10-15T18:52:02:    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+2025-10-15T18:52:02:    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+2025-10-15T18:52:02: help: use `'_` for type paths
+2025-10-15T18:52:02:    |
+2025-10-15T18:52:02: 47 | fn establish_connection(database_url: &str) -> BoxFuture<'_, ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:52:02:    |                                                          +++
+2025-10-15T18:52:02: 
+2025-10-15T18:52:02: warning: `aptos-indexer-processor-sdk` (lib) generated 1 warning
+2025-10-15T18:52:02:     Finished `release` profile [optimized] target(s) in 0.76s
+2025-10-15T18:52:02:      Running `/home/sudo/sudo-protocol-indexer/examples/target/release/postgres-basic-events-example --config-path config.yaml`
+2025-10-15T18:52:02: Error: Chain ID Check Error: Wrong chain id detected! Trying to index chain 207 now but existing data is for chain 206
+2025-10-15T18:52:02: 
+2025-10-15T18:52:02: Stack backtrace:
+2025-10-15T18:52:02:    0: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from
+2025-10-15T18:52:02:    1: aptos_indexer_processor_sdk::postgres::basic_processor::basic_processor_function::process::{{closure}}::{{closure}}
+2025-10-15T18:52:02:    2: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:52:02:    3: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:52:02:    4: tokio::runtime::scheduler::multi_thread::worker::Context::run_task
+2025-10-15T18:52:02:    5: tokio::runtime::scheduler::multi_thread::worker::Context::run
+2025-10-15T18:52:02:    6: std::thread::local::LocalKey<T>::with
+2025-10-15T18:52:02:    7: tokio::runtime::context::runtime::enter_runtime
+2025-10-15T18:52:02:    8: tokio::runtime::scheduler::multi_thread::worker::run
+2025-10-15T18:52:02:    9: <tokio::runtime::blocking::task::BlockingTask<T> as core::future::future::Future>::poll
+2025-10-15T18:52:02:   10: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:52:02:   11: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:52:02:   12: tokio::runtime::blocking::pool::Inner::run
+2025-10-15T18:52:02:   13: std::sys::backtrace::__rust_begin_short_backtrace
+2025-10-15T18:52:02:   14: core::ops::function::FnOnce::call_once{{vtable.shim}}
+2025-10-15T18:52:02:   15: std::sys::pal::unix::thread::Thread::new::thread_start
+2025-10-15T18:52:02:   16: <unknown>
+2025-10-15T18:52:02:   17: <unknown>
+2025-10-15T18:52:07: warning: unused import: `time::timestamp_to_iso`
+2025-10-15T18:52:07:  --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:3:52
+2025-10-15T18:52:07:   |
+2025-10-15T18:52:07: 3 |     utils::{additional_headers::AdditionalHeaders, time::timestamp_to_iso},
+2025-10-15T18:52:07:   |                                                    ^^^^^^^^^^^^^^^^^^^^^^
+2025-10-15T18:52:07:   |
+2025-10-15T18:52:07:   = note: `#[warn(unused_imports)]` on by default
+2025-10-15T18:52:07: 
+2025-10-15T18:52:07: warning: unused imports: `SampleRate` and `sample`
+2025-10-15T18:52:07:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:15:14
+2025-10-15T18:52:07:    |
+2025-10-15T18:52:07: 15 | use sample::{sample, SampleRate};
+2025-10-15T18:52:07:    |              ^^^^^^  ^^^^^^^^^^
+2025-10-15T18:52:07: 
+2025-10-15T18:52:07: warning: unused variable: `duration_in_secs`
+2025-10-15T18:52:07:    --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:447:29
+2025-10-15T18:52:07:     |
+2025-10-15T18:52:07: 447 |                         let duration_in_secs = grpc_channel_recv_latency.elapsed().as_secs_f64();
+2025-10-15T18:52:07:     |                             ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration_in_secs`
+2025-10-15T18:52:07:     |
+2025-10-15T18:52:07:     = note: `#[warn(unused_variables)]` on by default
+2025-10-15T18:52:07: 
+2025-10-15T18:52:07: warning: `aptos-indexer-transaction-stream` (lib) generated 3 warnings (run `cargo fix --lib -p aptos-indexer-transaction-stream` to apply 2 suggestions)
+2025-10-15T18:52:07: warning: hiding a lifetime that's elided elsewhere is confusing
+2025-10-15T18:52:07:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/sdk/src/postgres/utils/database.rs:47:39
+2025-10-15T18:52:07:    |
+2025-10-15T18:52:07: 47 | fn establish_connection(database_url: &str) -> BoxFuture<ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:52:07:    |                                       ^^^^     ---------------------------------------------- the same lifetime is hidden here
+2025-10-15T18:52:07:    |                                       |
+2025-10-15T18:52:07:    |                                       the lifetime is elided here
+2025-10-15T18:52:07:    |
+2025-10-15T18:52:07:    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+2025-10-15T18:52:07:    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+2025-10-15T18:52:07: help: use `'_` for type paths
+2025-10-15T18:52:07:    |
+2025-10-15T18:52:07: 47 | fn establish_connection(database_url: &str) -> BoxFuture<'_, ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:52:07:    |                                                          +++
+2025-10-15T18:52:07: 
+2025-10-15T18:52:07: warning: `aptos-indexer-processor-sdk` (lib) generated 1 warning
+2025-10-15T18:52:07:     Finished `release` profile [optimized] target(s) in 0.78s
+2025-10-15T18:52:07:      Running `/home/sudo/sudo-protocol-indexer/examples/target/release/postgres-basic-events-example --config-path config.yaml`
+2025-10-15T18:52:07: Error: Chain ID Check Error: Wrong chain id detected! Trying to index chain 207 now but existing data is for chain 206
+2025-10-15T18:52:07: 
+2025-10-15T18:52:07: Stack backtrace:
+2025-10-15T18:52:07:    0: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from
+2025-10-15T18:52:07:    1: aptos_indexer_processor_sdk::postgres::basic_processor::basic_processor_function::process::{{closure}}::{{closure}}
+2025-10-15T18:52:07:    2: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:52:07:    3: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:52:07:    4: tokio::runtime::scheduler::multi_thread::worker::Context::run_task
+2025-10-15T18:52:07:    5: tokio::runtime::scheduler::multi_thread::worker::Context::run
+2025-10-15T18:52:07:    6: std::thread::local::LocalKey<T>::with
+2025-10-15T18:52:07:    7: tokio::runtime::context::runtime::enter_runtime
+2025-10-15T18:52:07:    8: tokio::runtime::scheduler::multi_thread::worker::run
+2025-10-15T18:52:07:    9: <tokio::runtime::blocking::task::BlockingTask<T> as core::future::future::Future>::poll
+2025-10-15T18:52:07:   10: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:52:07:   11: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:52:07:   12: tokio::runtime::blocking::pool::Inner::run
+2025-10-15T18:52:07:   13: std::sys::backtrace::__rust_begin_short_backtrace
+2025-10-15T18:52:07:   14: core::ops::function::FnOnce::call_once{{vtable.shim}}
+2025-10-15T18:52:07:   15: std::sys::pal::unix::thread::Thread::new::thread_start
+2025-10-15T18:52:07:   16: <unknown>
+2025-10-15T18:52:07:   17: <unknown>
+2025-10-15T18:52:12: warning: unused import: `time::timestamp_to_iso`
+2025-10-15T18:52:12:  --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:3:52
+2025-10-15T18:52:12:   |
+2025-10-15T18:52:12: 3 |     utils::{additional_headers::AdditionalHeaders, time::timestamp_to_iso},
+2025-10-15T18:52:12:   |                                                    ^^^^^^^^^^^^^^^^^^^^^^
+2025-10-15T18:52:12:   |
+2025-10-15T18:52:12:   = note: `#[warn(unused_imports)]` on by default
+2025-10-15T18:52:12: 
+2025-10-15T18:52:12: warning: unused imports: `SampleRate` and `sample`
+2025-10-15T18:52:12:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:15:14
+2025-10-15T18:52:12:    |
+2025-10-15T18:52:12: 15 | use sample::{sample, SampleRate};
+2025-10-15T18:52:12:    |              ^^^^^^  ^^^^^^^^^^
+2025-10-15T18:52:12: 
+2025-10-15T18:52:12: warning: unused variable: `duration_in_secs`
+2025-10-15T18:52:12:    --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:447:29
+2025-10-15T18:52:12:     |
+2025-10-15T18:52:12: 447 |                         let duration_in_secs = grpc_channel_recv_latency.elapsed().as_secs_f64();
+2025-10-15T18:52:12:     |                             ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration_in_secs`
+2025-10-15T18:52:12:     |
+2025-10-15T18:52:12:     = note: `#[warn(unused_variables)]` on by default
+2025-10-15T18:52:12: 
+2025-10-15T18:52:12: warning: `aptos-indexer-transaction-stream` (lib) generated 3 warnings (run `cargo fix --lib -p aptos-indexer-transaction-stream` to apply 2 suggestions)
+2025-10-15T18:52:12: warning: hiding a lifetime that's elided elsewhere is confusing
+2025-10-15T18:52:12:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/sdk/src/postgres/utils/database.rs:47:39
+2025-10-15T18:52:12:    |
+2025-10-15T18:52:12: 47 | fn establish_connection(database_url: &str) -> BoxFuture<ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:52:12:    |                                       ^^^^     ---------------------------------------------- the same lifetime is hidden here
+2025-10-15T18:52:12:    |                                       |
+2025-10-15T18:52:12:    |                                       the lifetime is elided here
+2025-10-15T18:52:12:    |
+2025-10-15T18:52:12:    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+2025-10-15T18:52:12:    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+2025-10-15T18:52:12: help: use `'_` for type paths
+2025-10-15T18:52:12:    |
+2025-10-15T18:52:12: 47 | fn establish_connection(database_url: &str) -> BoxFuture<'_, ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:52:12:    |                                                          +++
+2025-10-15T18:52:12: 
+2025-10-15T18:52:12: warning: `aptos-indexer-processor-sdk` (lib) generated 1 warning
+2025-10-15T18:52:12:     Finished `release` profile [optimized] target(s) in 0.73s
+2025-10-15T18:52:12:      Running `/home/sudo/sudo-protocol-indexer/examples/target/release/postgres-basic-events-example --config-path config.yaml`
+2025-10-15T18:52:12: Error: Chain ID Check Error: Wrong chain id detected! Trying to index chain 207 now but existing data is for chain 206
+2025-10-15T18:52:12: 
+2025-10-15T18:52:12: Stack backtrace:
+2025-10-15T18:52:12:    0: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from
+2025-10-15T18:52:12:    1: aptos_indexer_processor_sdk::postgres::basic_processor::basic_processor_function::process::{{closure}}::{{closure}}
+2025-10-15T18:52:12:    2: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:52:12:    3: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:52:12:    4: tokio::runtime::scheduler::multi_thread::worker::Context::run_task
+2025-10-15T18:52:12:    5: tokio::runtime::scheduler::multi_thread::worker::Context::run
+2025-10-15T18:52:12:    6: std::thread::local::LocalKey<T>::with
+2025-10-15T18:52:12:    7: tokio::runtime::context::runtime::enter_runtime
+2025-10-15T18:52:12:    8: tokio::runtime::scheduler::multi_thread::worker::run
+2025-10-15T18:52:12:    9: <tokio::runtime::blocking::task::BlockingTask<T> as core::future::future::Future>::poll
+2025-10-15T18:52:12:   10: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:52:12:   11: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:52:12:   12: tokio::runtime::blocking::pool::Inner::run
+2025-10-15T18:52:12:   13: std::sys::backtrace::__rust_begin_short_backtrace
+2025-10-15T18:52:12:   14: core::ops::function::FnOnce::call_once{{vtable.shim}}
+2025-10-15T18:52:12:   15: std::sys::pal::unix::thread::Thread::new::thread_start
+2025-10-15T18:52:12:   16: <unknown>
+2025-10-15T18:52:12:   17: <unknown>
+2025-10-15T18:52:17: warning: unused import: `time::timestamp_to_iso`
+2025-10-15T18:52:17:  --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:3:52
+2025-10-15T18:52:17:   |
+2025-10-15T18:52:17: 3 |     utils::{additional_headers::AdditionalHeaders, time::timestamp_to_iso},
+2025-10-15T18:52:17:   |                                                    ^^^^^^^^^^^^^^^^^^^^^^
+2025-10-15T18:52:17:   |
+2025-10-15T18:52:17:   = note: `#[warn(unused_imports)]` on by default
+2025-10-15T18:52:17: 
+2025-10-15T18:52:17: warning: unused imports: `SampleRate` and `sample`
+2025-10-15T18:52:17:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:15:14
+2025-10-15T18:52:17:    |
+2025-10-15T18:52:17: 15 | use sample::{sample, SampleRate};
+2025-10-15T18:52:17:    |              ^^^^^^  ^^^^^^^^^^
+2025-10-15T18:52:17: 
+2025-10-15T18:52:17: warning: unused variable: `duration_in_secs`
+2025-10-15T18:52:17:    --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:447:29
+2025-10-15T18:52:17:     |
+2025-10-15T18:52:17: 447 |                         let duration_in_secs = grpc_channel_recv_latency.elapsed().as_secs_f64();
+2025-10-15T18:52:17:     |                             ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration_in_secs`
+2025-10-15T18:52:17:     |
+2025-10-15T18:52:17:     = note: `#[warn(unused_variables)]` on by default
+2025-10-15T18:52:17: 
+2025-10-15T18:52:17: warning: `aptos-indexer-transaction-stream` (lib) generated 3 warnings (run `cargo fix --lib -p aptos-indexer-transaction-stream` to apply 2 suggestions)
+2025-10-15T18:52:17: warning: hiding a lifetime that's elided elsewhere is confusing
+2025-10-15T18:52:17:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/sdk/src/postgres/utils/database.rs:47:39
+2025-10-15T18:52:17:    |
+2025-10-15T18:52:17: 47 | fn establish_connection(database_url: &str) -> BoxFuture<ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:52:17:    |                                       ^^^^     ---------------------------------------------- the same lifetime is hidden here
+2025-10-15T18:52:17:    |                                       |
+2025-10-15T18:52:17:    |                                       the lifetime is elided here
+2025-10-15T18:52:17:    |
+2025-10-15T18:52:17:    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+2025-10-15T18:52:17:    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+2025-10-15T18:52:17: help: use `'_` for type paths
+2025-10-15T18:52:17:    |
+2025-10-15T18:52:17: 47 | fn establish_connection(database_url: &str) -> BoxFuture<'_, ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:52:17:    |                                                          +++
+2025-10-15T18:52:17: 
+2025-10-15T18:52:17: warning: `aptos-indexer-processor-sdk` (lib) generated 1 warning
+2025-10-15T18:52:17:     Finished `release` profile [optimized] target(s) in 0.66s
+2025-10-15T18:52:17:      Running `/home/sudo/sudo-protocol-indexer/examples/target/release/postgres-basic-events-example --config-path config.yaml`
+2025-10-15T18:52:17: Error: Chain ID Check Error: Wrong chain id detected! Trying to index chain 207 now but existing data is for chain 206
+2025-10-15T18:52:17: 
+2025-10-15T18:52:17: Stack backtrace:
+2025-10-15T18:52:17:    0: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from
+2025-10-15T18:52:17:    1: aptos_indexer_processor_sdk::postgres::basic_processor::basic_processor_function::process::{{closure}}::{{closure}}
+2025-10-15T18:52:17:    2: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:52:17:    3: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:52:17:    4: tokio::runtime::scheduler::multi_thread::worker::Context::run_task
+2025-10-15T18:52:17:    5: tokio::runtime::scheduler::multi_thread::worker::Context::run
+2025-10-15T18:52:17:    6: std::thread::local::LocalKey<T>::with
+2025-10-15T18:52:17:    7: tokio::runtime::context::runtime::enter_runtime
+2025-10-15T18:52:17:    8: tokio::runtime::scheduler::multi_thread::worker::run
+2025-10-15T18:52:17:    9: <tokio::runtime::blocking::task::BlockingTask<T> as core::future::future::Future>::poll
+2025-10-15T18:52:17:   10: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:52:17:   11: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:52:17:   12: tokio::runtime::blocking::pool::Inner::run
+2025-10-15T18:52:17:   13: std::sys::backtrace::__rust_begin_short_backtrace
+2025-10-15T18:52:17:   14: core::ops::function::FnOnce::call_once{{vtable.shim}}
+2025-10-15T18:52:17:   15: std::sys::pal::unix::thread::Thread::new::thread_start
+2025-10-15T18:52:17:   16: <unknown>
+2025-10-15T18:52:17:   17: <unknown>
+2025-10-15T18:52:22: warning: unused import: `time::timestamp_to_iso`
+2025-10-15T18:52:22:  --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:3:52
+2025-10-15T18:52:22:   |
+2025-10-15T18:52:22: 3 |     utils::{additional_headers::AdditionalHeaders, time::timestamp_to_iso},
+2025-10-15T18:52:22:   |                                                    ^^^^^^^^^^^^^^^^^^^^^^
+2025-10-15T18:52:22:   |
+2025-10-15T18:52:22:   = note: `#[warn(unused_imports)]` on by default
+2025-10-15T18:52:22: 
+2025-10-15T18:52:22: warning: unused imports: `SampleRate` and `sample`
+2025-10-15T18:52:22:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:15:14
+2025-10-15T18:52:22:    |
+2025-10-15T18:52:22: 15 | use sample::{sample, SampleRate};
+2025-10-15T18:52:22:    |              ^^^^^^  ^^^^^^^^^^
+2025-10-15T18:52:22: 
+2025-10-15T18:52:22: warning: unused variable: `duration_in_secs`
+2025-10-15T18:52:22:    --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:447:29
+2025-10-15T18:52:22:     |
+2025-10-15T18:52:22: 447 |                         let duration_in_secs = grpc_channel_recv_latency.elapsed().as_secs_f64();
+2025-10-15T18:52:22:     |                             ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration_in_secs`
+2025-10-15T18:52:22:     |
+2025-10-15T18:52:22:     = note: `#[warn(unused_variables)]` on by default
+2025-10-15T18:52:22: 
+2025-10-15T18:52:22: warning: `aptos-indexer-transaction-stream` (lib) generated 3 warnings (run `cargo fix --lib -p aptos-indexer-transaction-stream` to apply 2 suggestions)
+2025-10-15T18:52:22: warning: hiding a lifetime that's elided elsewhere is confusing
+2025-10-15T18:52:22:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/sdk/src/postgres/utils/database.rs:47:39
+2025-10-15T18:52:22:    |
+2025-10-15T18:52:22: 47 | fn establish_connection(database_url: &str) -> BoxFuture<ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:52:22:    |                                       ^^^^     ---------------------------------------------- the same lifetime is hidden here
+2025-10-15T18:52:22:    |                                       |
+2025-10-15T18:52:22:    |                                       the lifetime is elided here
+2025-10-15T18:52:22:    |
+2025-10-15T18:52:22:    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+2025-10-15T18:52:22:    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+2025-10-15T18:52:22: help: use `'_` for type paths
+2025-10-15T18:52:22:    |
+2025-10-15T18:52:22: 47 | fn establish_connection(database_url: &str) -> BoxFuture<'_, ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:52:22:    |                                                          +++
+2025-10-15T18:52:22: 
+2025-10-15T18:52:22: warning: `aptos-indexer-processor-sdk` (lib) generated 1 warning
+2025-10-15T18:52:22:     Finished `release` profile [optimized] target(s) in 0.75s
+2025-10-15T18:52:22:      Running `/home/sudo/sudo-protocol-indexer/examples/target/release/postgres-basic-events-example --config-path config.yaml`
+2025-10-15T18:52:22: Error: Chain ID Check Error: Wrong chain id detected! Trying to index chain 207 now but existing data is for chain 206
+2025-10-15T18:52:22: 
+2025-10-15T18:52:22: Stack backtrace:
+2025-10-15T18:52:22:    0: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from
+2025-10-15T18:52:22:    1: aptos_indexer_processor_sdk::postgres::basic_processor::basic_processor_function::process::{{closure}}::{{closure}}
+2025-10-15T18:52:22:    2: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:52:22:    3: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:52:22:    4: tokio::runtime::scheduler::multi_thread::worker::Context::run_task
+2025-10-15T18:52:22:    5: tokio::runtime::scheduler::multi_thread::worker::Context::run
+2025-10-15T18:52:22:    6: std::thread::local::LocalKey<T>::with
+2025-10-15T18:52:22:    7: tokio::runtime::context::runtime::enter_runtime
+2025-10-15T18:52:22:    8: tokio::runtime::scheduler::multi_thread::worker::run
+2025-10-15T18:52:22:    9: <tokio::runtime::blocking::task::BlockingTask<T> as core::future::future::Future>::poll
+2025-10-15T18:52:22:   10: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:52:22:   11: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:52:22:   12: tokio::runtime::blocking::pool::Inner::run
+2025-10-15T18:52:22:   13: std::sys::backtrace::__rust_begin_short_backtrace
+2025-10-15T18:52:22:   14: core::ops::function::FnOnce::call_once{{vtable.shim}}
+2025-10-15T18:52:22:   15: std::sys::pal::unix::thread::Thread::new::thread_start
+2025-10-15T18:52:22:   16: <unknown>
+2025-10-15T18:52:22:   17: <unknown>
+2025-10-15T18:52:28: warning: unused import: `time::timestamp_to_iso`
+2025-10-15T18:52:28:  --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:3:52
+2025-10-15T18:52:28:   |
+2025-10-15T18:52:28: 3 |     utils::{additional_headers::AdditionalHeaders, time::timestamp_to_iso},
+2025-10-15T18:52:28:   |                                                    ^^^^^^^^^^^^^^^^^^^^^^
+2025-10-15T18:52:28:   |
+2025-10-15T18:52:28:   = note: `#[warn(unused_imports)]` on by default
+2025-10-15T18:52:28: 
+2025-10-15T18:52:28: warning: unused imports: `SampleRate` and `sample`
+2025-10-15T18:52:28:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:15:14
+2025-10-15T18:52:28:    |
+2025-10-15T18:52:28: 15 | use sample::{sample, SampleRate};
+2025-10-15T18:52:28:    |              ^^^^^^  ^^^^^^^^^^
+2025-10-15T18:52:28: 
+2025-10-15T18:52:28: warning: unused variable: `duration_in_secs`
+2025-10-15T18:52:28:    --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:447:29
+2025-10-15T18:52:28:     |
+2025-10-15T18:52:28: 447 |                         let duration_in_secs = grpc_channel_recv_latency.elapsed().as_secs_f64();
+2025-10-15T18:52:28:     |                             ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration_in_secs`
+2025-10-15T18:52:28:     |
+2025-10-15T18:52:28:     = note: `#[warn(unused_variables)]` on by default
+2025-10-15T18:52:28: 
+2025-10-15T18:52:28: warning: `aptos-indexer-transaction-stream` (lib) generated 3 warnings (run `cargo fix --lib -p aptos-indexer-transaction-stream` to apply 2 suggestions)
+2025-10-15T18:52:28: warning: hiding a lifetime that's elided elsewhere is confusing
+2025-10-15T18:52:28:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/sdk/src/postgres/utils/database.rs:47:39
+2025-10-15T18:52:28:    |
+2025-10-15T18:52:28: 47 | fn establish_connection(database_url: &str) -> BoxFuture<ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:52:28:    |                                       ^^^^     ---------------------------------------------- the same lifetime is hidden here
+2025-10-15T18:52:28:    |                                       |
+2025-10-15T18:52:28:    |                                       the lifetime is elided here
+2025-10-15T18:52:28:    |
+2025-10-15T18:52:28:    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+2025-10-15T18:52:28:    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+2025-10-15T18:52:28: help: use `'_` for type paths
+2025-10-15T18:52:28:    |
+2025-10-15T18:52:28: 47 | fn establish_connection(database_url: &str) -> BoxFuture<'_, ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:52:28:    |                                                          +++
+2025-10-15T18:52:28: 
+2025-10-15T18:52:28: warning: `aptos-indexer-processor-sdk` (lib) generated 1 warning
+2025-10-15T18:52:28:     Finished `release` profile [optimized] target(s) in 0.80s
+2025-10-15T18:52:28:      Running `/home/sudo/sudo-protocol-indexer/examples/target/release/postgres-basic-events-example --config-path config.yaml`
+2025-10-15T18:52:28: Error: Chain ID Check Error: Wrong chain id detected! Trying to index chain 207 now but existing data is for chain 206
+2025-10-15T18:52:28: 
+2025-10-15T18:52:28: Stack backtrace:
+2025-10-15T18:52:28:    0: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from
+2025-10-15T18:52:28:    1: aptos_indexer_processor_sdk::postgres::basic_processor::basic_processor_function::process::{{closure}}::{{closure}}
+2025-10-15T18:52:28:    2: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:52:28:    3: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:52:28:    4: tokio::runtime::scheduler::multi_thread::worker::Context::run_task
+2025-10-15T18:52:28:    5: tokio::runtime::scheduler::multi_thread::worker::Context::run
+2025-10-15T18:52:28:    6: std::thread::local::LocalKey<T>::with
+2025-10-15T18:52:28:    7: tokio::runtime::context::runtime::enter_runtime
+2025-10-15T18:52:28:    8: tokio::runtime::scheduler::multi_thread::worker::run
+2025-10-15T18:52:28:    9: <tokio::runtime::blocking::task::BlockingTask<T> as core::future::future::Future>::poll
+2025-10-15T18:52:28:   10: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:52:28:   11: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:52:28:   12: tokio::runtime::blocking::pool::Inner::run
+2025-10-15T18:52:28:   13: std::sys::backtrace::__rust_begin_short_backtrace
+2025-10-15T18:52:28:   14: core::ops::function::FnOnce::call_once{{vtable.shim}}
+2025-10-15T18:52:28:   15: std::sys::pal::unix::thread::Thread::new::thread_start
+2025-10-15T18:52:28:   16: <unknown>
+2025-10-15T18:52:28:   17: <unknown>
+2025-10-15T18:52:33: warning: unused import: `time::timestamp_to_iso`
+2025-10-15T18:52:33:  --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:3:52
+2025-10-15T18:52:33:   |
+2025-10-15T18:52:33: 3 |     utils::{additional_headers::AdditionalHeaders, time::timestamp_to_iso},
+2025-10-15T18:52:33:   |                                                    ^^^^^^^^^^^^^^^^^^^^^^
+2025-10-15T18:52:33:   |
+2025-10-15T18:52:33:   = note: `#[warn(unused_imports)]` on by default
+2025-10-15T18:52:33: 
+2025-10-15T18:52:33: warning: unused imports: `SampleRate` and `sample`
+2025-10-15T18:52:33:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:15:14
+2025-10-15T18:52:33:    |
+2025-10-15T18:52:33: 15 | use sample::{sample, SampleRate};
+2025-10-15T18:52:33:    |              ^^^^^^  ^^^^^^^^^^
+2025-10-15T18:52:33: 
+2025-10-15T18:52:33: warning: unused variable: `duration_in_secs`
+2025-10-15T18:52:33:    --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:447:29
+2025-10-15T18:52:33:     |
+2025-10-15T18:52:33: 447 |                         let duration_in_secs = grpc_channel_recv_latency.elapsed().as_secs_f64();
+2025-10-15T18:52:33:     |                             ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration_in_secs`
+2025-10-15T18:52:33:     |
+2025-10-15T18:52:33:     = note: `#[warn(unused_variables)]` on by default
+2025-10-15T18:52:33: 
+2025-10-15T18:52:33: warning: `aptos-indexer-transaction-stream` (lib) generated 3 warnings (run `cargo fix --lib -p aptos-indexer-transaction-stream` to apply 2 suggestions)
+2025-10-15T18:52:33: warning: hiding a lifetime that's elided elsewhere is confusing
+2025-10-15T18:52:33:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/sdk/src/postgres/utils/database.rs:47:39
+2025-10-15T18:52:33:    |
+2025-10-15T18:52:33: 47 | fn establish_connection(database_url: &str) -> BoxFuture<ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:52:33:    |                                       ^^^^     ---------------------------------------------- the same lifetime is hidden here
+2025-10-15T18:52:33:    |                                       |
+2025-10-15T18:52:33:    |                                       the lifetime is elided here
+2025-10-15T18:52:33:    |
+2025-10-15T18:52:33:    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+2025-10-15T18:52:33:    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+2025-10-15T18:52:33: help: use `'_` for type paths
+2025-10-15T18:52:33:    |
+2025-10-15T18:52:33: 47 | fn establish_connection(database_url: &str) -> BoxFuture<'_, ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:52:33:    |                                                          +++
+2025-10-15T18:52:33: 
+2025-10-15T18:52:33: warning: `aptos-indexer-processor-sdk` (lib) generated 1 warning
+2025-10-15T18:52:33:     Finished `release` profile [optimized] target(s) in 0.69s
+2025-10-15T18:52:33:      Running `/home/sudo/sudo-protocol-indexer/examples/target/release/postgres-basic-events-example --config-path config.yaml`
+2025-10-15T18:52:33: Error: Chain ID Check Error: Wrong chain id detected! Trying to index chain 207 now but existing data is for chain 206
+2025-10-15T18:52:33: 
+2025-10-15T18:52:33: Stack backtrace:
+2025-10-15T18:52:33:    0: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from
+2025-10-15T18:52:33:    1: aptos_indexer_processor_sdk::postgres::basic_processor::basic_processor_function::process::{{closure}}::{{closure}}
+2025-10-15T18:52:33:    2: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:52:33:    3: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:52:33:    4: tokio::runtime::scheduler::multi_thread::worker::Context::run_task
+2025-10-15T18:52:33:    5: tokio::runtime::scheduler::multi_thread::worker::Context::run
+2025-10-15T18:52:33:    6: std::thread::local::LocalKey<T>::with
+2025-10-15T18:52:33:    7: tokio::runtime::context::runtime::enter_runtime
+2025-10-15T18:52:33:    8: tokio::runtime::scheduler::multi_thread::worker::run
+2025-10-15T18:52:33:    9: <tokio::runtime::blocking::task::BlockingTask<T> as core::future::future::Future>::poll
+2025-10-15T18:52:33:   10: tokio::runtime::task::core::Core<T,S>::poll
+2025-10-15T18:52:33:   11: tokio::runtime::task::harness::Harness<T,S>::poll
+2025-10-15T18:52:33:   12: tokio::runtime::blocking::pool::Inner::run
+2025-10-15T18:52:33:   13: std::sys::backtrace::__rust_begin_short_backtrace
+2025-10-15T18:52:33:   14: core::ops::function::FnOnce::call_once{{vtable.shim}}
+2025-10-15T18:52:33:   15: std::sys::pal::unix::thread::Thread::new::thread_start
+2025-10-15T18:52:33:   16: <unknown>
+2025-10-15T18:52:33:   17: <unknown>
+2025-10-15T18:52:38: warning: unused import: `time::timestamp_to_iso`
+2025-10-15T18:52:38:  --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:3:52
+2025-10-15T18:52:38:   |
+2025-10-15T18:52:38: 3 |     utils::{additional_headers::AdditionalHeaders, time::timestamp_to_iso},
+2025-10-15T18:52:38:   |                                                    ^^^^^^^^^^^^^^^^^^^^^^
+2025-10-15T18:52:38:   |
+2025-10-15T18:52:38:   = note: `#[warn(unused_imports)]` on by default
+2025-10-15T18:52:38: 
+2025-10-15T18:52:38: warning: unused imports: `SampleRate` and `sample`
+2025-10-15T18:52:38:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:15:14
+2025-10-15T18:52:38:    |
+2025-10-15T18:52:38: 15 | use sample::{sample, SampleRate};
+2025-10-15T18:52:38:    |              ^^^^^^  ^^^^^^^^^^
+2025-10-15T18:52:38: 
+2025-10-15T18:52:38: warning: unused variable: `duration_in_secs`
+2025-10-15T18:52:38:    --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:447:29
+2025-10-15T18:52:38:     |
+2025-10-15T18:52:38: 447 |                         let duration_in_secs = grpc_channel_recv_latency.elapsed().as_secs_f64();
+2025-10-15T18:52:38:     |                             ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration_in_secs`
+2025-10-15T18:52:38:     |
+2025-10-15T18:52:38:     = note: `#[warn(unused_variables)]` on by default
+2025-10-15T18:52:38: 
+2025-10-15T18:52:38: warning: `aptos-indexer-transaction-stream` (lib) generated 3 warnings (run `cargo fix --lib -p aptos-indexer-transaction-stream` to apply 2 suggestions)
+2025-10-15T18:52:38: warning: hiding a lifetime that's elided elsewhere is confusing
+2025-10-15T18:52:38:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/sdk/src/postgres/utils/database.rs:47:39
+2025-10-15T18:52:38:    |
+2025-10-15T18:52:38: 47 | fn establish_connection(database_url: &str) -> BoxFuture<ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:52:38:    |                                       ^^^^     ---------------------------------------------- the same lifetime is hidden here
+2025-10-15T18:52:38:    |                                       |
+2025-10-15T18:52:38:    |                                       the lifetime is elided here
+2025-10-15T18:52:38:    |
+2025-10-15T18:52:38:    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+2025-10-15T18:52:38:    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+2025-10-15T18:52:38: help: use `'_` for type paths
+2025-10-15T18:52:38:    |
+2025-10-15T18:52:38: 47 | fn establish_connection(database_url: &str) -> BoxFuture<'_, ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:52:38:    |                                                          +++
+2025-10-15T18:52:38: 
+2025-10-15T18:52:38: warning: `aptos-indexer-processor-sdk` (lib) generated 1 warning
+2025-10-15T18:52:38:     Finished `release` profile [optimized] target(s) in 0.68s
+2025-10-15T18:52:38:      Running `/home/sudo/sudo-protocol-indexer/examples/target/release/postgres-basic-events-example --config-path config.yaml`
+2025-10-15T18:53:01: warning: unused import: `time::timestamp_to_iso`
+2025-10-15T18:53:01:  --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:3:52
+2025-10-15T18:53:01:   |
+2025-10-15T18:53:01: 3 |     utils::{additional_headers::AdditionalHeaders, time::timestamp_to_iso},
+2025-10-15T18:53:01:   |                                                    ^^^^^^^^^^^^^^^^^^^^^^
+2025-10-15T18:53:01:   |
+2025-10-15T18:53:01:   = note: `#[warn(unused_imports)]` on by default
+2025-10-15T18:53:01: 
+2025-10-15T18:53:01: warning: unused imports: `SampleRate` and `sample`
+2025-10-15T18:53:01:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:15:14
+2025-10-15T18:53:01:    |
+2025-10-15T18:53:01: 15 | use sample::{sample, SampleRate};
+2025-10-15T18:53:01:    |              ^^^^^^  ^^^^^^^^^^
+2025-10-15T18:53:01: 
+2025-10-15T18:53:01: warning: unused variable: `duration_in_secs`
+2025-10-15T18:53:01:    --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/transaction-stream/src/transaction_stream.rs:447:29
+2025-10-15T18:53:01:     |
+2025-10-15T18:53:01: 447 |                         let duration_in_secs = grpc_channel_recv_latency.elapsed().as_secs_f64();
+2025-10-15T18:53:01:     |                             ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration_in_secs`
+2025-10-15T18:53:01:     |
+2025-10-15T18:53:01:     = note: `#[warn(unused_variables)]` on by default
+2025-10-15T18:53:01: 
+2025-10-15T18:53:01: warning: `aptos-indexer-transaction-stream` (lib) generated 3 warnings (run `cargo fix --lib -p aptos-indexer-transaction-stream` to apply 2 suggestions)
+2025-10-15T18:53:01: warning: hiding a lifetime that's elided elsewhere is confusing
+2025-10-15T18:53:01:   --> /home/sudo/sudo-protocol-indexer/aptos-indexer-processors-sdk/sdk/src/postgres/utils/database.rs:47:39
+2025-10-15T18:53:01:    |
+2025-10-15T18:53:01: 47 | fn establish_connection(database_url: &str) -> BoxFuture<ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:53:01:    |                                       ^^^^     ---------------------------------------------- the same lifetime is hidden here
+2025-10-15T18:53:01:    |                                       |
+2025-10-15T18:53:01:    |                                       the lifetime is elided here
+2025-10-15T18:53:01:    |
+2025-10-15T18:53:01:    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+2025-10-15T18:53:01:    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+2025-10-15T18:53:01: help: use `'_` for type paths
+2025-10-15T18:53:01:    |
+2025-10-15T18:53:01: 47 | fn establish_connection(database_url: &str) -> BoxFuture<'_, ConnectionResult<AsyncPgConnection>> {
+2025-10-15T18:53:01:    |                                                          +++
+2025-10-15T18:53:01: 
+2025-10-15T18:53:01: warning: `aptos-indexer-processor-sdk` (lib) generated 1 warning
+2025-10-15T18:53:01:     Finished `release` profile [optimized] target(s) in 0.78s
+2025-10-15T18:53:01:      Running `/home/sudo/sudo-protocol-indexer/examples/target/release/postgres-basic-events-example --config-path config.yaml`

@@ -11,11 +11,27 @@ use aptos_indexer_processor_sdk::{
 use diesel::{Identifiable, Insertable};
 use field_count::FieldCount;
 use serde::{Deserialize, Serialize};
-use tracing::{info};
+use std::sync::Arc;
+use parking_lot::RwLock;
 
 
 // p99 currently is 303 so using 300 as a safe max length
 const EVENT_TYPE_MAX_LENGTH: usize = 300;
+
+// Global module registry for dynamic module checking
+lazy_static::lazy_static! {
+    static ref ACTIVE_MODULES: Arc<RwLock<Vec<String>>> = Arc::new(RwLock::new(Vec::new()));
+}
+
+/// Update the list of active modules
+pub fn update_active_modules(modules: Vec<String>) {
+    let mut active = ACTIVE_MODULES.write();
+    *active = modules;
+    println!("✅ [BuyEvent] Updated active modules: {} modules loaded", active.len());
+    for (i, module) in active.iter().enumerate() {
+        println!("   {}. {}", i + 1, module);
+    }
+}
 
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
@@ -63,8 +79,13 @@ impl BuyEvent {
     ) -> Option<Self> {
         let t: &str = event.type_str.as_ref();
 
-        // Monitor events from the new deployed module (Devnet FA Raffle)
-        if t.starts_with("0x38804aa2186ed8e3a33e5c3dc071d8d0248f578dd7fa0bff382b72df85b8a22f::fa_raffle::BuyEvent") {
+        // Check against all active modules dynamically
+        let active_modules = ACTIVE_MODULES.read();
+        let is_monitored = active_modules.iter().any(|module_addr| {
+            t.starts_with(&format!("{}::fa_raffle::BuyEvent", module_addr))
+        });
+
+        if is_monitored {
             let data: BuyEventOnChain = serde_json::from_str(event.data.as_str()).unwrap();
             // info!("");
             // info!("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
